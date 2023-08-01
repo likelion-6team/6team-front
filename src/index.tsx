@@ -4,14 +4,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Global } from "@emotion/react";
 import reset from "./styles/reset";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Global styles={reset} />
-    <App />
+    <BrowserRouter>
+      <Global styles={reset} />
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
