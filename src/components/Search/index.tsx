@@ -1,5 +1,6 @@
 import React from "react";
+import Wrapper from "../Container/Wrapper";
 
 export default function Search() {
-  return <div>Search</div>;
+  return <Wrapper>Search</Wrapper>;
 }
