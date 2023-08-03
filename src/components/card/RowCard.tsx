@@ -81,48 +81,7 @@ export default function RowCard({
         </div>
         </div>
       </div>
-      <div css={space}></div> 
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
-      <div css={space}></div>
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
-      <div css={space}></div>
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
+      <div css={space}></div>       
     </div> 
     </>
   );
