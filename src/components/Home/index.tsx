@@ -3,7 +3,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import ColumnCard from "../card/ColumnCard";
-import RowCard from "../card/RowCard";
+import RankCard from "../card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../Container/Wrapper";
 
@@ -33,28 +33,28 @@ export default function Home() {
         <Button />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
-          <RowCard
+          <RankCard
             img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
             title="아이폰 12 미니"
             highestPrice="300,000"
             lowestPrice="180,000"
             url="https://web.joongna.com/product/125014218"
           />
-          <RowCard
+          <RankCard
             img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
             title="아이폰 12 미니"
             highestPrice="300,000"
             lowestPrice="180,000"
             url="https://web.joongna.com/product/125014218"
           />
-          <RowCard
+          <RankCard
             img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
             title="아이폰 12 미니"
             highestPrice="300,000"
             lowestPrice="180,000"
             url="https://web.joongna.com/product/125014218"
           />
-          <RowCard
+          <RankCard
             img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
             title="아이폰 12 미니"
             highestPrice="300,000"
