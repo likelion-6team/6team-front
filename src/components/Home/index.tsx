@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import ColumnCard from "../card/ColumnCard";
+import RowCard from "../card/RowCard" //RowCard 추가
 import Wrapper from "../Container/Wrapper";
 
 export default function Home() {
@@ -18,6 +19,20 @@ export default function Home() {
           location="서울시 강동구"
           img="https://image.lguplus.com/common/images/hphn/product/A2628-128/imge_cut/ushop_A2628-128_67_A.jpg"
         />
+
+        <div>인기 매물</div> 
+        <div>
+          <RowCard 
+          title = "아이폰 11 퍼플"
+          price="500,000"
+          shop = "당근마켓"
+          url = ""
+          location = "인천광역시 부평구"
+          img = "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
+        />
+        
+        </div>
+        
       </Wrapper>
     </>
   );
