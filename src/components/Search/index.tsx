@@ -1,11 +1,11 @@
 import React from "react";
 import Wrapper from "../Container/Wrapper";
-import FilterModal from "../../FilterModal";
+import FilterModal from "../../modal/FilterModal";
 
 export default function Search() {
   return (
     <Wrapper>
-      <FilterModal />
+      <FilterModal title="필터" clicked={true} />
     </Wrapper>
   );
 }
