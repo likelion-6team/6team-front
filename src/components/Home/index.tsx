@@ -20,7 +20,6 @@ export default function Home() {
           img="https://image.lguplus.com/common/images/hphn/product/A2628-128/imge_cut/ushop_A2628-128_67_A.jpg"
         />
 
-        <div>인기 매물</div> 
         <div>
           <RowCard 
           title = "아이폰 11 퍼플"
