@@ -40,27 +40,6 @@ export default function Home() {
             lowestPrice="180,000"
             url="https://web.joongna.com/product/125014218"
           />
-          <RankCard
-            img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
-            title="아이폰 12 미니"
-            highestPrice="300,000"
-            lowestPrice="180,000"
-            url="https://web.joongna.com/product/125014218"
-          />
-          <RankCard
-            img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
-            title="아이폰 12 미니"
-            highestPrice="300,000"
-            lowestPrice="180,000"
-            url="https://web.joongna.com/product/125014218"
-          />
-          <RankCard
-            img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
-            title="아이폰 12 미니"
-            highestPrice="300,000"
-            lowestPrice="180,000"
-            url="https://web.joongna.com/product/125014218"
-          />
         </div>
 
         <ColumnCard
