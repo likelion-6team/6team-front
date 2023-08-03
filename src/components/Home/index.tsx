@@ -6,6 +6,7 @@ import ColumnCard from "../card/ColumnCard";
 import RankCard from "../card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../Container/Wrapper";
+import RowCard from "../card/RowCard";
 
 const rankText = css`
   font-size: 1.5rem;
@@ -51,17 +52,15 @@ export default function Home() {
         />
 
         <div>
-          <RowCard 
-          title = "아이폰 11 퍼플"
-          price="500,000"
-          shop = "당근마켓"
-          url = ""
-          location = "인천광역시 부평구"
-          img = "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
-        />
-        
+          <RowCard
+            title="아이폰 11 퍼플"
+            price="500,000"
+            shop="당근마켓"
+            url=""
+            location="인천광역시 부평구"
+            img="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
+          />
         </div>
-        
       </Wrapper>
     </>
   );
