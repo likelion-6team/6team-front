@@ -23,11 +23,19 @@ const background = css`
 `;
 
 const space = css `
-  width: 0.5em;
+  width: 0.5rem;
+`;
+
+const line_space = css `
+  margin-top: 0.2rem;
+`;
+
+const space_02 = css `
+  height: 0.2em;
 `;
 
 const outerDiv = css`
-    margin: 0 auto;
+    margin-top: 1rem;
     width: 18rem;
     height: 20rem;
     border: 0.13rem solid;
@@ -46,15 +54,22 @@ const innerDiv = css `
     border-radius: 2rem;
 `;
 
+//상품 이미지
 const productImg = css`
   width: 12rem;
   height: 12rem;
   flex-shrink: 0;
 `;
 
+//플랫폼 이름, 상품 제목, 가격, 위치
 const content = css `
     margin-left: 2rem;
     margin-top: 0.5rem;
+`;
+
+const popularProduct = css `
+font-size: 1.8rem;
+font-weight: bold;
 `;
 
 export default function RowCard({
@@ -67,6 +82,7 @@ export default function RowCard({
 }: RowCardProps) {
   return (
     <>
+    <div css={popularProduct}>인기 매물</div>
     <div css={background}>
       <div onClick={() => window.open(url)}>
         <div css={outerDiv}> 
@@ -75,54 +91,13 @@ export default function RowCard({
          </div>
          <div css={content}>
             <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
+            <div css={line_space}>{title}</div>
+            <div css={line_space}>{price}원</div>
+            <div css={line_space}>{location}</div>
         </div>
         </div>
       </div>
-      <div css={space}></div> 
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
-      <div css={space}></div>
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
-      <div css={space}></div>
-      <div onClick={() => window.open(url)}>
-        <div css={outerDiv}> 
-         <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-         </div>
-         <div css={content}>
-            <div>{shop}</div>
-            <div>{title}</div>
-            <div>{price}원</div>
-            <div>{location}</div>
-        </div>
-        </div>
-      </div>
+      <div css={space}></div>       
     </div> 
     </>
   );
