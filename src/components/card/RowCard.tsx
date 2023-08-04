@@ -30,10 +30,6 @@ const line_space = css `
   margin-top: 0.2rem;
 `;
 
-const space_02 = css `
-  height: 0.2em;
-`;
-
 const outerDiv = css`
     margin-top: 1rem;
     width: 18rem;
