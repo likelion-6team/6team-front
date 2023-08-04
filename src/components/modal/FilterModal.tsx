@@ -1,5 +1,5 @@
 import React from "react";
-import ModalContainer from "../components/Container/ModalContainer";
+import ModalContainer from "../Container/ModalContainer";
 
 interface FilterModalProps {
   clicked: boolean;
