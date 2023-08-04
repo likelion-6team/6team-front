@@ -7,6 +7,7 @@ import RankCard from "../card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../Container/Wrapper";
 import RowCard from "../card/RowCard";
+import Header from "../Header/Header";
 
 const rankText = css`
   font-size: 1.5rem;
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <Wrapper>
         <div onClick={() => navigate(`/search`)}>누르면 search 로 가용</div>
         <Button />
