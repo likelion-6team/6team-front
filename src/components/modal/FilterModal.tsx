@@ -1,11 +1,18 @@
 import React from "react";
 import ModalContainer from "../Container/ModalContainer";
+import { useRecoilState } from "recoil";
+import { filterClicked } from "../../recoil/atoms/filterClicked";
 
 interface FilterModalProps {
-  clicked: boolean;
   title: string;
 }
 
-export default function FilterModal({ clicked, title }: FilterModalProps) {
-  return <ModalContainer clicked={clicked}>{title}</ModalContainer>;
+export default function FilterModal({ title }: FilterModalProps) {
+  const [clicked, setClicked] = useRecoilState<boolean>(filterClicked);
+  return (
+    <ModalContainer clicked={clicked} setClicked={setClicked} title={title}>
+    
+    
+    </ModalContainer>
+  );
 }
