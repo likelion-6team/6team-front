@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
 import { useNavigate } from "react-router-dom";
-import Button from "../button/Button";
-import ColumnCard from "../card/ColumnCard";
 import RankCard from "../card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../Container/Wrapper";
@@ -33,7 +31,6 @@ export default function Home() {
       <Header />
       <Wrapper>
         <div onClick={() => navigate(`/search`)}>누르면 search 로 가용</div>
-        <Button />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
           <RankCard
@@ -44,15 +41,6 @@ export default function Home() {
             url="https://web.joongna.com/product/125014218"
           />
         </div>
-
-        <ColumnCard
-          title="테스트입니다"
-          price="200,000"
-          url="https://www.naver.com"
-          location="서울시 강동구"
-          img="https://image.lguplus.com/common/images/hphn/product/A2628-128/imge_cut/ushop_A2628-128_67_A.jpg"
-        />
-
         <div>
           <RowCard
             title="아이폰 11 퍼플"

@@ -31,7 +31,7 @@ const font = css`
 export default function Header() {
   return (
     <div css={header}>
-      <img css={logo} src="Images/logo.png" />
+      <img css={logo} src="Images/logo.png" alt="logo" />
       <div css={font}>HAN NU NET</div>
     </div>
   );
