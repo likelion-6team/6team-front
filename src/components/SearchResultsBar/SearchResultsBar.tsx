@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import styled from "@emotion/styled";
 import RowCard from "../card/RowCard";
 
 interface SearchResult {
