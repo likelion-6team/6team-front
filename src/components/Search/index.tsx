@@ -11,7 +11,8 @@ export default function Search() {
       <div onClick={() => setClicked((prev) => !prev)}>
         누르면 필터가 나옵니다
       </div>
-      <FilterModal title="필터" />
+      <button></button>
+      <FilterModal />
     </Wrapper>
   );
 }
