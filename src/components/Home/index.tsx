@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
-// import Button from "../button/Button";
-import RowCard from "../card/RowCard" //RowCard 추가
+import Button from "../button/Button";
+import RowCard from "../card/RowCard"; //RowCard 추가
 import Wrapper from "../Container/Wrapper";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import RowCard from "../card/RowCard";
 import Header from "../Header/Header";
 import Search from "../searchBar/Search"
+=======
+import Search from "../searchBar/Search";
+>>>>>>> b8a6e22 (feat: 메인 화면 검색창 추가)
 
 const rankText = css`
   font-size: 1.5rem;
@@ -64,20 +68,22 @@ export default function Home() {
           img="https://image.lguplus.com/common/images/hphn/product/A2628-128/imge_cut/ushop_A2628-128_67_A.jpg"
         /> */}
 
+<<<<<<< HEAD
         <div>인기 매물</div> 
 >>>>>>> 04306fa (feat: 메인 화면 검색창 추가)
+=======
+        <div>인기 매물</div>
+>>>>>>> b8a6e22 (feat: 메인 화면 검색창 추가)
         <div>
-          <RowCard 
-          title = "아이폰 11 퍼플"
-          price="500,000"
-          shop = "당근마켓"
-          url = ""
-          location = "인천광역시 부평구"
-          img = "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
-        />
-        
+          <RowCard
+            title="아이폰 11 퍼플"
+            price="500,000"
+            shop="당근마켓"
+            url=""
+            location="인천광역시 부평구"
+            img="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
+          />
         </div>
-        
       </Wrapper>
     </>
   );
