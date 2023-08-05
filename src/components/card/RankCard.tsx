@@ -8,6 +8,7 @@ interface RankCardProps {
   title: string;
   highestPrice: string;
   lowestPrice: string;
+  isEnlarged?: boolean;
 }
 
 const rankTest = css`
@@ -35,9 +36,15 @@ const texts = css`
   margin-left: 1rem;
 `;
 
-const product = css`
+const productName = css`
   font-size: 1.2rem;
   font-weight: bold;
+`;
+
+const enlargedRankCard = css`
+  //
+  width: 60rem;
+  height: 25rem;
 `;
 
 export default function RankCard({
@@ -46,15 +53,26 @@ export default function RankCard({
   title,
   highestPrice,
   lowestPrice,
+  isEnlarged = false,
 }: RankCardProps) {
+  const handleClick = () => {
+    if (url) {
+      window.open(url);
+    }
+  };
   return (
     <>
-      <div onClick={() => window.open(url)} css={rankTest}>
-        <img css={imgEx} src={img} alt="img" />
+      <div
+        onClick={handleClick}
+        css={[rankTest, isEnlarged && enlargedRankCard]}
+      >
+        <img id="productImg" css={imgEx} src={img} alt="img" />
         <div css={texts}>
-          <div css={product}>{title}</div>
+          <div id="productName" css={productName}>
+            {title}
+          </div>
           <div>최고가:{highestPrice}</div>
-          <div>최고가:{lowestPrice}</div>
+          <div>최저가:{lowestPrice}</div>
         </div>
       </div>
     </>
