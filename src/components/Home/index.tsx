@@ -1,7 +1,10 @@
+/** @jsxImportSource @emotion/react */
+
 import { useNavigate } from "react-router-dom";
-import Button from "../button/Button";
-import RowCard from "../card/RowCard"; //RowCard 추가
+import RankCard from "../card/RankCard";
+import { css } from "@emotion/react";
 import Wrapper from "../Container/Wrapper";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import RowCard from "../card/RowCard";
@@ -10,6 +13,11 @@ import Search from "../searchBar/Search"
 =======
 import Search from "../searchBar/Search";
 >>>>>>> b8a6e22 (feat: 메인 화면 검색창 추가)
+=======
+import RowCard from "../card/RowCard";
+import Header from "../Header/Header";
+import Search from "../searchBar/Search"
+>>>>>>> 559a6e1 (feat: 메인 화면 검색창 추가)
 
 const rankText = css`
   font-size: 1.5rem;
@@ -26,9 +34,12 @@ const cards = css`
   height: 30rem;
   margin: auto;
 `;
+<<<<<<< HEAD
 =======
 import Search from "../searchBar/Search"
 >>>>>>> 04306fa (feat: 메인 화면 검색창 추가)
+=======
+>>>>>>> 559a6e1 (feat: 메인 화면 검색창 추가)
 
 export default function Home() {
   const navigate = useNavigate();
@@ -36,17 +47,26 @@ export default function Home() {
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   };
 =======
   };
 
 >>>>>>> 04306fa (feat: 메인 화면 검색창 추가)
+=======
+
+  };
+>>>>>>> 559a6e1 (feat: 메인 화면 검색창 추가)
   return (
     <>
+      <Header />
       <Wrapper>
         <Search onSearch={handleSearch} />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 559a6e1 (feat: 메인 화면 검색창 추가)
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
           <RankCard
@@ -57,6 +77,7 @@ export default function Home() {
             url="https://web.joongna.com/product/125014218"
           />
         </div>
+<<<<<<< HEAD
 =======
         {/* <div onClick={() => navigate(`/search`)}>누르면 search 로 가용</div>
         <Button />
@@ -74,6 +95,8 @@ export default function Home() {
 =======
         <div>인기 매물</div>
 >>>>>>> b8a6e22 (feat: 메인 화면 검색창 추가)
+=======
+>>>>>>> 559a6e1 (feat: 메인 화면 검색창 추가)
         <div>
           <RowCard
             title="아이폰 11 퍼플"
