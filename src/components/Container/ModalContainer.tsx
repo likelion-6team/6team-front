@@ -14,29 +14,36 @@ interface ModalContainerProps {
 }
 
 const ModalBackGroundDiv = ({ clicked }: { clicked: boolean }) => css`
-  display: ${clicked ? "flex" : "none"};
+  display: flex;
+  visibility: ${clicked ? "visible" : "hidden"};
   position: fixed;
+  opacity: ${clicked ? 1 : 0};
+  transition: opacity 0.5s;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   z-index: 10;
   background-color: ${theme.colors["--opacity-backgroudColor"]};
-  padding-top: 10rem;
 `;
 
-const ModalContainerStyle = css`
+const ModalContainerDiv = ({ clicked }: { clicked: boolean }) => css`
+  display: flex;
+  position: absolute;
   z-index: 999;
-  position: relative;
-  transform: translate(-50%);
+  visibility: ${clicked ? "visible" : "hidden"};
+  opacity: ${clicked ? 1 : 0};
+  transform: translate(-50%, ${clicked ? "0" : "50%"});
+  transition: transform 0.5s, visibility 0.5s, opacity 0.15s;
+  top: 20%;
   left: 50%;
-  width: 50rem;
+  min-width: 30rem;
+  width: 40%;
   height: 30rem;
-  align-items: flex-end;
-  justify-content: center;
-  background-color: ${theme.colors["white"]};
+  flex-direction: column;
+  align-items: center;
+  background-color: ${theme.colors.white};
   border-radius: 1.5rem;
-  box-sizing: border-box;
   border-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -83,19 +90,18 @@ const ModalContainer = ({
         onClick={(e) => {
           setClicked(false);
         }}
-      >
-        <div css={ModalContainerStyle} onClick={(e) => e.stopPropagation()}>
-          <VscClose
-            css={ModalCloseIcon}
-            onClick={(e) => {
-              setClicked(false);
-            }}
-          />
-          <div css={ModalTitleDiv}>
-            <div css={ModalTitleText}>{title}</div>
-          </div>
-          {children}
+      ></div>
+      <div css={ModalContainerDiv({ clicked })}>
+        <VscClose
+          css={ModalCloseIcon}
+          onClick={(e) => {
+            setClicked(false);
+          }}
+        />
+        <div css={ModalTitleDiv}>
+          <div css={ModalTitleText}>{title}</div>
         </div>
+        {children}
       </div>
     </>
   );
