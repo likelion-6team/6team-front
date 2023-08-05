@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
 import { useNavigate } from "react-router-dom";
-import RankCard from "../card/RankCard";
+import RankCard from "../components/card/RankCard";
 import { css } from "@emotion/react";
-import Wrapper from "../Container/Wrapper";
-import RowCard from "../card/RowCard";
-import Header from "../Header/Header";
-import Search from "../searchBar/Search"
+import Wrapper from "../components/Container/Wrapper";
+import RowCard from "../components/card/RowCard";
+import Header from "../components/Header/Header";
+import Search from "../components/searchBar/Search";
 
 const rankText = css`
   font-size: 1.5rem;
@@ -29,12 +29,16 @@ export default function Home() {
 
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
-
   };
   return (
     <>
       <Header />
       <Wrapper>
+        <div
+          onClick={() => {
+            navigate("/search");
+          }}
+        >클릭하면 서치페이지로</div>
         <Search onSearch={handleSearch} />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
