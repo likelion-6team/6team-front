@@ -7,7 +7,8 @@ import Wrapper from "../components/Container/Wrapper";
 import RowCard from "../components/card/RowCard";
 import Header from "../components/Header/Header";
 import Search from "../components/searchBar/Search";
-
+import rank from "../data/rank.json";
+import stuff from "../data/stuff.json";
 const rankText = css`
   font-size: 1.5rem;
   font-weight: bold;
@@ -23,7 +24,6 @@ const cards = css`
   height: 30rem;
   margin: auto;
 `;
-
 export default function Home() {
   const navigate = useNavigate();
 
@@ -38,27 +38,39 @@ export default function Home() {
           onClick={() => {
             navigate("/search");
           }}
-        >클릭하면 서치페이지로</div>
+        >
+          클릭하면 서치페이지로
+        </div>
         <Search onSearch={handleSearch} />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
-          <RankCard
-            img="https://img2.joongna.com/media/original/2023/08/02/1690959165531TTO_wYyoM.jpg?impolicy=resizeWatermark3&ftext=%EC%8B%9C%ED%95%B4"
-            title="아이폰 12 미니"
-            highestPrice="300,000"
-            lowestPrice="180,000"
-            url="https://web.joongna.com/product/125014218"
-          />
+          {rank.map(({ image, model, modelHp, modelLp, id }) => {
+            return (
+              <RankCard
+                key={id}
+                img={image}
+                title={model}
+                highestPrice={modelHp}
+                lowestPrice={modelLp}
+                url="https://web.joongna.com/product/125014218"
+              />
+            );
+          })}
         </div>
-        <div>
-          <RowCard
-            title="아이폰 11 퍼플"
-            price="500,000"
-            shop="당근마켓"
-            url=""
-            location="인천광역시 부평구"
-            img="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
-          />
+        <div >
+          {stuff.map(({ image, title, price, region, date, site, id }) => {
+            return (
+              <RowCard
+                key={id}
+                title={title}
+                price={price}
+                shop={site}
+                url=""
+                location={region}
+                img="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
+              />
+            );
+          })}
         </div>
       </Wrapper>
     </>

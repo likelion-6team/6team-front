@@ -1,0 +1,30 @@
+[
+  {
+    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+    "model": "LG 그램",
+    "modelHp": "999,000",
+    "modelLp": "966,000",
+    "id": 1
+  },
+  {
+    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+    "model": "아이폰13",
+    "modelHp": "1,234,000",
+    "modelLp": "866,000",
+    "id": 2
+  },
+  {
+    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+    "model": "맥북에어 2023",
+    "modelHp": "800,000",
+    "modelLp": "600,000",
+    "id": 3
+  },
+  {
+    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+    "model": "아이패드4 에어",
+    "modelHp": "399,000",
+    "modelLp": "310,000",
+    "id": 4
+  }
+]
