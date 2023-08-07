@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import RowCard from "../card/RowCard";
+import RowCard from "../card/ColumnCard";
 
 interface SearchResult {
   result: string;

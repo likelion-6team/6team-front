@@ -3,7 +3,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
 
-interface RowCardProps {
+interface ColumnCardProps {
   url: string;
   img: string;
   shop: string; //중고나라, 당근마켓, 번개장터
@@ -13,11 +13,11 @@ interface RowCardProps {
 }
 
 const background = css`
-  display: flex;
-  justify-content: center;
-  background-color: ${theme.colors["light-gray"]};
-  width: 75rem;
-  height: 22.5rem;
+  display: inline-block;
+  margin-right: 0.938rem;
+  margin-bottom: 1rem;
+  width: 17.5rem;
+  height: 22rem;
   font-size: 1.3rem;
   font-weight: bold;
 `;
@@ -31,10 +31,9 @@ const line_space = css`
 `;
 
 const outerDiv = css`
-  margin-top: 1rem;
-  width: 18rem;
-  height: 20rem;
-  border: 0.13rem solid;
+  width: 17.5rem;
+  height: 22rem;
+  border: 0.12rem solid;
   border-radius: 0.8rem;
   border-color: ${theme.colors["main-color"]};
 `;
@@ -42,12 +41,12 @@ const outerDiv = css`
 const innerDiv = css`
   display: flex;
   justify-content: center;
-  width: 16rem;
-  margin-top: 1rem;
-  margin-left: 0.9rem;
-  border: 0.13rem solid;
+  width: 15rem;
+  margin-top: 1.5rem;
+  margin-left: 1.3rem;
+  border: 0.14rem solid;
   border-color: ${theme.colors["main-color"]};
-  border-radius: 2rem;
+  border-radius: 1rem;
 `;
 
 //상품 이미지
@@ -63,22 +62,16 @@ const content = css`
   margin-top: 0.5rem;
 `;
 
-const popularProduct = css`
-  font-size: 1.8rem;
-  font-weight: bold;
-`;
-
-export default function RowCard({
+export default function ColumnCard({
   url,
   img,
   shop,
   title,
   price,
   location,
-}: RowCardProps) {
+}: ColumnCardProps) {
   return (
     <>
-      <div css={popularProduct}>인기 매물</div>
       <div css={background}>
         <div onClick={() => window.open(url)}>
           <div css={outerDiv}>
