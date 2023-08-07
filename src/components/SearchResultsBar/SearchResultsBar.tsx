@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import RowCard from "../card/RowCard";
+import ColumnCard from "../card/ColumnCard";
 import stuff from "../../data/stuff.json";
 
 const searchResult = css`
@@ -83,6 +83,7 @@ const optionCss = css`
     color: white;
   }
 `;
+import RowCard from "../card/ColumnCard";
 
 interface SearchResult {
   result: string;

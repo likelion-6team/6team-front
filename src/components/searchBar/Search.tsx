@@ -14,7 +14,8 @@ const searchWrapper = css`
   justify-content: center;
   padding-left: 1rem;
   display: flex;
-  width: 73.5rem;
+  width: 72.5rem;
+  margin-bottom: 1rem;
   height: 3rem;
   border: 0.25rem solid;
   border-radius: 1.2rem;
