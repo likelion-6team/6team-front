@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import RankCard from "../components/card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../components/Container/Wrapper";
-import RowCard from "../components/card/RowCard";
+import ColumnCard from "../components/card/ColumnCard";
 import Header from "../components/Header/Header";
 import Search from "../components/searchBar/Search";
 import rank from "../data/rank.json";
@@ -13,6 +13,7 @@ const rankText = css`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
 
 const cards = css`
@@ -57,17 +58,18 @@ export default function Home() {
             );
           })}
         </div>
-        <div >
-          {stuff.map(({ image, title, price, region, date, site, id }) => {
+        <div>
+        <div css={rankText}>인기 매물</div>
+          {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
-              <RowCard
+              <ColumnCard
                 key={id}
                 title={title}
                 price={price}
                 shop={site}
-                url=""
+                url={url}
                 location={region}
-                img="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large.jpg"
+                img={image}
               />
             );
           })}
