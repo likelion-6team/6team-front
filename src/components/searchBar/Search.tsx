@@ -14,12 +14,8 @@ const searchWrapper = css`
   justify-content: center;
   padding-left: 1rem;
   display: flex;
-<<<<<<< HEAD
   width: 72.5rem;
   margin-bottom: 1rem;
-=======
-  width: 73.5rem;
->>>>>>> 04306fa (feat: 메인 화면 검색창 추가)
   height: 3rem;
   border: 0.25rem solid;
   border-radius: 1.2rem;
