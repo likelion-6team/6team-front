@@ -4,7 +4,6 @@ import { css } from "@emotion/react";
 import theme from "../../styles/theme";
 import RowCard from "../card/RowCard";
 import stuff from "../../data/stuff.json";
-import styled from "@emotion/styled";
 
 const searchResult = css`
   color: #000;
