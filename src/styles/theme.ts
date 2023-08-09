@@ -6,6 +6,7 @@ const theme = {
     "--opacity-backgroudColor": "rgba(34, 34, 34, 0.4)",
     "--opacity-closeButton": "rgb(207, 207, 207,0.4)",
     "--border-gray": "#ebebeb",
+    "--sub-textColor": "#717171",
   },
 };
 
