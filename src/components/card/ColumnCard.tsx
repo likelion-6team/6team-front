@@ -16,8 +16,9 @@ interface ColumnCardProps {
 const gridContainer = css`
   background: orange;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 15rem);
+  grid-gap: 3.5rem;
   margin-bottom: 1rem;
   font-size: 1.3rem;
   font-weight: bold;
