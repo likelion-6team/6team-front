@@ -83,7 +83,6 @@ const optionCss = css`
     color: white;
   }
 `;
-import RowCard from "../card/ColumnCard";
 
 interface SearchResult {
   result: string;
@@ -181,7 +180,7 @@ export default function SearchResultBar({ result }: SearchResult) {
         </div>
         {filteredProducts.map((item) => (
           <div key={item.id}>
-            <RowCard
+            <ColumnCard
               url={item.url}
               img={item.image}
               shop={item.site}
