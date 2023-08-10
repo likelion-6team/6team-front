@@ -25,6 +25,17 @@ const cards = css`
   height: 30rem;
   margin: auto;
 `;
+
+const gridContainer = css`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 15rem);
+  grid-gap: 3.4rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+`;
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -58,8 +69,8 @@ export default function Home() {
             );
           })}
         </div>
-        <div>
-          <div css={rankText}>인기 매물</div>
+        <div css={rankText}>인기 매물</div>
+        <div css = {gridContainer}> 
           {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
               <ColumnCard
