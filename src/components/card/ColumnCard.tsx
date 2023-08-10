@@ -14,10 +14,10 @@ interface ColumnCardProps {
 
 const background = css`
   display: inline-block;
-  margin-right: 0.938rem;
+  margin-right: 2.09rem;
+  margin-left: 1.2rem;
   margin-bottom: 1rem;
-  width: 17.5rem;
-  height: 22rem;
+  width: 15.14rem;
   font-size: 1.3rem;
   font-weight: bold;
 `;
@@ -30,20 +30,10 @@ const line_space = css`
   margin-top: 0.2rem;
 `;
 
-const outerDiv = css`
-  width: 17.5rem;
-  height: 22rem;
-  border: 0.12rem solid;
-  border-radius: 0.8rem;
-  border-color: ${theme.colors["main-color"]};
-`;
-
 const innerDiv = css`
   display: flex;
   justify-content: center;
   width: 15rem;
-  margin-top: 1.5rem;
-  margin-left: 1.3rem;
   border: 0.14rem solid;
   border-color: ${theme.colors["main-color"]};
   border-radius: 1rem;
@@ -74,7 +64,6 @@ export default function ColumnCard({
     <>
       <div css={background}>
         <div onClick={() => window.open(url)}>
-          <div css={outerDiv}>
             <div css={innerDiv}>
               <img css={productImg} src={img} alt="img" />
             </div>
@@ -84,7 +73,6 @@ export default function ColumnCard({
               <div css={line_space}>{price}원</div>
               <div css={line_space}>{location}</div>
             </div>
-          </div>
         </div>
         <div css={space}></div>
       </div>
