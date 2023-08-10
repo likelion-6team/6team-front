@@ -187,6 +187,7 @@ export default function SearchResultBar({ result }: SearchResult) {
               title={item.title}
               price={item.price}
               location={item.region}
+              date={item.date}
             />
           </div>
         ))}
