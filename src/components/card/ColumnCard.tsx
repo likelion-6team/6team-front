@@ -13,16 +13,16 @@ interface ColumnCardProps {
   date: string;
 }
 
-const gridContainer = css`
-  background: orange;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(4, 15rem);
-  grid-gap: 3.4rem;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-`;
+// const gridContainer = css`
+//   background: orange;
+//   display: grid;
+//   justify-content: center;
+//   grid-template-columns: repeat(4, 15rem);
+//   grid-gap: 3.4rem;
+//   margin-bottom: 1rem;
+//   font-size: 1.3rem;
+//   font-weight: bold;
+// `;
 
 const line_space = css`
   margin-top: 0.2rem;
@@ -60,7 +60,6 @@ export default function ColumnCard({
   date,
 }: ColumnCardProps) {
   return (
-    <div css={gridContainer}>
       <div onClick={() => window.open(url)}>
         <div css={innerDiv}>
           <img css={productImg} src={img} alt="img" />
@@ -73,6 +72,5 @@ export default function ColumnCard({
           <div css={line_space}>{date}</div>
         </div>
       </div>
-    </div>
   );
 }
