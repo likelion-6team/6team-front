@@ -70,6 +70,7 @@ export default function Home() {
                 url={url}
                 location={region}
                 img={image}
+                date={date}
               />
             );
           })}
