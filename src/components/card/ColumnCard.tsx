@@ -61,17 +61,17 @@ export default function ColumnCard({
 }: ColumnCardProps) {
   return (
     <div css={gridContainer}>
-        <div onClick={() => window.open(url)}>
-          <div css={innerDiv}>
-            <img css={productImg} src={img} alt="img" />
-          </div>
-          <div css={content}>
-            <div>{shop}</div>
-            <div css={line_space}>{title}</div>
-            <div css={line_space}>{price}원</div>
-            <div css={line_space}>{location}</div>
-            <div css={line_space}>{date}</div>
-          </div>
+      <div onClick={() => window.open(url)}>
+        <div css={innerDiv}>
+          <img css={productImg} src={img} alt="img" />
+        </div>
+        <div css={content}>
+          <div>{shop}</div>
+          <div css={line_space}>{title}</div>
+          <div css={line_space}>{price}원</div>
+          <div css={line_space}>{location}</div>
+          <div css={line_space}>{date}</div>
+        </div>
       </div>
     </div>
   );

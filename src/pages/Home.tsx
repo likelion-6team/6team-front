@@ -59,7 +59,7 @@ export default function Home() {
           })}
         </div>
         <div>
-        <div css={rankText}>인기 매물</div>
+          <div css={rankText}>인기 매물</div>
           {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
               <ColumnCard
