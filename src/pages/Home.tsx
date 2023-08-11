@@ -9,6 +9,8 @@ import Header from "../components/Header/Header";
 import Search from "../components/searchBar/Search";
 import rank from "../data/rank.json";
 import stuff from "../data/stuff.json";
+import Footer from "../components/footer/Footer";
+
 const rankText = css`
   font-size: 1.5rem;
   font-weight: bold;
@@ -21,7 +23,6 @@ const cards = css`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.1rem;
   border-radius: 1rem;
-  border: 1px solid black;
   height: 30rem;
   margin: auto;
 `;
@@ -70,7 +71,7 @@ export default function Home() {
           })}
         </div>
         <div css={rankText}>인기 매물</div>
-        <div css = {gridContainer}> 
+        <div css={gridContainer}>
           {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
               <ColumnCard
@@ -87,6 +88,7 @@ export default function Home() {
           })}
         </div>
       </Wrapper>
+      <Footer />
     </>
   );
 }
