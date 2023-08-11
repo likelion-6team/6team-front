@@ -25,37 +25,39 @@ export default function RankCard({
   css: customStyles,
 }: RankCardProps) {
   const rankTest = css`
-    width: 33rem;
-    height: 13rem;
-    border-radius: 1rem;
-    border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    padding: 20px;
+
     ${customStyles?.rankTest}
   `;
 
   const imgEx = css`
     width: 15rem;
     height: 11rem;
-    border-radius: 1rem;
     margin-left: 1rem;
     ${customStyles?.imgEx}
   `;
 
   const texts = css`
-    font-size: 1rem;
-    line-height: 200%;
-    margin-left: 1rem;
-    ${customStyles?.texts}
+    display: grid;
+    grid-template-rows: repeat(2, 0.3fr);
+    gap: 2px;
+    padding: 30px;
+    line-height: 300%;
+    ${customStyles?.texts};
   `;
 
   const product = css`
     font-size: 1.2rem;
     font-weight: bold;
+
     ${customStyles?.product}
+  `;
+
+  const price = css`
+    line-height: 200%;
   `;
 
   const handleClick = () => {
@@ -69,8 +71,10 @@ export default function RankCard({
         <img css={imgEx} src={img} alt="img" />
         <div css={texts}>
           <div css={product}>{title}</div>
-          <div>최고가:{highestPrice}</div>
-          <div>최고가:{lowestPrice}</div>
+          <div css={price}>
+            <div>최고가: {highestPrice}</div>
+            <div>최고가: {lowestPrice}</div>
+          </div>
         </div>
       </div>
     </>
