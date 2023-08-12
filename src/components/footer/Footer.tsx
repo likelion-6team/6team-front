@@ -69,7 +69,12 @@ function Footer() {
         <div css={footerLinkItems}>
           {/*1열*/}
           <h2 css={footerLinkItemsH2}>About Us</h2>
-          <p css={footerLinkItemsA}>정우진</p>
+          <p
+            onClick={() => window.open("https://github.com/wJJin", "_blank")}
+            css={footerLinkItemsA}
+          >
+            정우진
+          </p>
           <p
             onClick={() => window.open("https://github.com/Hellol77", "_blank")}
             css={footerLinkItemsA}
@@ -92,7 +97,14 @@ function Footer() {
           >
             김정주
           </p>
-          <p css={footerLinkItemsA}>김준영</p>
+          <p
+            onClick={() =>
+              window.open("https://github.com/jykim1428", "_blank")
+            }
+            css={footerLinkItemsA}
+          >
+            김준영
+          </p>
           <p
             onClick={() =>
               window.open("https://github.com/daeunleeeee", "_blank")
