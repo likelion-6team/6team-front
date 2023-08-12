@@ -8,6 +8,12 @@ import { useSearch } from "../hooks/useSearch";
 import ColumnCard from "../components/card/ColumnCard";
 import SearchHeader from "../components/Header/SearchHeader";
 import GridContainer from "../components/Container/GridContainer";
+import { useSetRecoilState } from "recoil";
+import { filterClicked } from "../recoil/atoms/filterClicked";
+import rank from "../data/rank.json";
+import RankCard from "../components/card/RankCard";
+import SearchBar2 from "../components/searchBar/SearchBar2";
+import { css } from "@emotion/react";
 
 export default function Search() {
   const { stuff } = useParams();
@@ -23,6 +29,10 @@ export default function Search() {
   if (isError) {
     return <p></p>;
   }
+
+  const handleSearch = (searchTerm: string) => {
+    console.log("검색:", searchTerm);
+  };
 
   return (
     <Wrapper>
