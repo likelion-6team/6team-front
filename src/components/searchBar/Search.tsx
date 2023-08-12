@@ -17,16 +17,21 @@ const searchWrapper = css`
   width: 72.5rem;
   margin-bottom: 1rem;
   height: 3rem;
-  border: 0.25rem solid;
-  border-radius: 1.2rem;
+  border: 0.2rem solid;
+  border-radius: 2rem;
   border-color: ${theme.colors["main-color"]};
+  position: absolute;
+  top: 28rem;
+  background-color: white;
 `;
 
 const searchInput = css`
+  background-color: white;
   font-size: 1.4rem;
   font-weight: bold;
   color: #5b5b5b;
   width: 70rem;
+  border-radius: 2rem;
   border: none;
   outline: none;
   ::placeholder {
@@ -41,7 +46,7 @@ const searchButton = css`
   border: none;
   width: 4.2rem;
   height: 2.5rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   cursor: pointer;
   font-size: 1rem;
   margin-top: 0.2rem;
