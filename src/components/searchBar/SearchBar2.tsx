@@ -9,29 +9,31 @@ interface SearchProps {
 
 //CSS 시작
 
+const topWrapper = css`
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1rem;
+`;
+
 const searchWrapper = css`
-  display: flex;
   justify-content: center;
   padding-left: 1rem;
   display: flex;
-  width: 72.5rem;
+  width: 50rem;
   margin-bottom: 1rem;
   height: 3rem;
-  border: 0.2rem solid;
-  border-radius: 2rem;
+  border: 0.25rem solid;
+  border-radius: 1.2rem;
   border-color: ${theme.colors["main-color"]};
-  position: absolute;
-  top: 28rem;
-  background-color: white;
 `;
 
 const searchInput = css`
-  background-color: white;
   font-size: 1.4rem;
   font-weight: bold;
   color: #5b5b5b;
   width: 70rem;
-  border-radius: 2rem;
   border: none;
   outline: none;
   ::placeholder {
@@ -46,7 +48,7 @@ const searchButton = css`
   border: none;
   width: 4.2rem;
   height: 2.5rem;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1rem;
   margin-top: 0.2rem;
@@ -117,9 +119,9 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     setIsHistoryVisible(!isHistoryVisible);
   };
 
-  // Search 컴포넌트 렌더링 결과 반환
   return (
-    <div>
+    <div css={topWrapper}>
+      <div>로고</div>
       <div onClick={handleSearchBarClick} css={searchWrapper}>
         <input //검색어 입력
           css={searchInput}
@@ -145,6 +147,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
             </ul>
           </div>
         )}
+      <div>필터</div>
     </div>
   );
 };
