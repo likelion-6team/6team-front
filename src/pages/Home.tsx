@@ -6,7 +6,7 @@ import { css } from "@emotion/react";
 import Wrapper from "../components/Container/Wrapper";
 import ColumnCard from "../components/card/ColumnCard";
 import Header from "../components/Header/Header";
-import Search from "../components/searchBar/Search";
+import SearchBar from "../components/searchBar/SearchBar";
 import rank from "../data/rank.json";
 import stuff from "../data/stuff.json";
 const rankText = css`
@@ -53,7 +53,7 @@ export default function Home() {
         >
           클릭하면 서치페이지로
         </div>
-        <Search onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>
           {rank.map(({ image, model, modelHp, modelLp, id }) => {
@@ -70,7 +70,7 @@ export default function Home() {
           })}
         </div>
         <div css={rankText}>인기 매물</div>
-        <div css = {gridContainer}> 
+        <div css={gridContainer}>
           {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
               <ColumnCard
