@@ -16,7 +16,7 @@ export default function Search() {
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
   };
-
+  
   const customSearchBarStyles = {
     searchWrapper: css`
       width: 50rem;
