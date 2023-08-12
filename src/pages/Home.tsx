@@ -10,6 +10,8 @@ import Search from "../components/searchBar/Search";
 import rank from "../data/rank.json";
 import stuff from "../data/stuff.json";
 import Footer from "../components/footer/Footer";
+import ChatbotButton from "../components/chatbot/ChatbotButton";
+import ChatbotModal from "../components/modal/ChatbotModal";
 
 const rankText = css`
   font-size: 1.5rem;
@@ -88,6 +90,8 @@ export default function Home() {
           })}
         </div>
       </Wrapper>
+      <ChatbotButton />
+      <ChatbotModal title="맞춤형 전자기기를 추천해드려요" />
       <Footer />
     </>
   );
