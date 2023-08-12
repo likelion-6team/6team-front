@@ -112,7 +112,6 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     setIsHistoryVisible(!isHistoryVisible);
   };
 
-  // Search 컴포넌트 렌더링 결과 반환
   return (
     <div>
       <div onClick={handleSearchBarClick} css={searchWrapper}>
