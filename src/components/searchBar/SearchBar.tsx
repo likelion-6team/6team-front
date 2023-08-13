@@ -2,13 +2,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
+import { FaSearch  } from 'react-icons/fa';
 
 interface SearchProps {
   onSearch: (searchTerm: string) => void;
+  customStyles?: {
+    searchWrapper?: any;
+    history?: any;
+  };
 }
 
 //CSS 시작
-
 const searchWrapper = css`
   display: flex;
   justify-content: center;
@@ -28,8 +32,6 @@ const searchWrapper = css`
 const searchInput = css`
   background-color: white;
   font-size: 1.4rem;
-  font-weight: bold;
-  color: #5b5b5b;
   width: 70rem;
   border-radius: 2rem;
   border: none;
@@ -42,9 +44,8 @@ const searchInput = css`
 const searchButton = css`
   right: 1rem;
   padding: 0.5rem 1rem;
-  background-color: ${theme.colors["light-gray"]};
   border: none;
-  width: 4.2rem;
+  width: 3rem;
   height: 2.5rem;
   border-radius: 2rem;
   cursor: pointer;
@@ -52,24 +53,36 @@ const searchButton = css`
   margin-top: 0.2rem;
   margin-right: 0.3rem;
   flex-shrink: 0;
+  background-color: transparent; 
 `;
 
 const history = css`
-  margin-top: 0.5rem;
-  text-align: center;
+  background: white;
+  padding-left: 1rem;
+  padding-botton: 1.1rem;
+  margin-top: -0.5rem;
   border: 0.13rem solid;
   border-radius: 0.8rem;
   border-color: white;
   box-shadow: 0rem 0rem 0.5rem 0.05rem #bcbcbc;
-  width: 74.75rem;
+  width: 72.5rem;
   padding-top: 0.6rem;
   font-size: 1.3rem;
   line-height: 2rem;
+  zIndex: 1;
+  position: absolute;
 `;
+
+const searchIcon = css`
+  color: #5b5b5b;
+  width: 1.3rem;
+  height: 1.4rem;
+`
 
 //여기까지 CSS
 
-const Search: React.FC<SearchProps> = ({ onSearch }) => {
+const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
+
   // 검색어 상태&검색 기록 상태 초기화
   const [searchTerm, setSearchTerm] = useState("");
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
@@ -117,9 +130,13 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     setIsHistoryVisible(!isHistoryVisible);
   };
 
+  // Search 컴포넌트 렌더링 결과 반환
   return (
     <div>
-      <div onClick={handleSearchBarClick} css={searchWrapper}>
+      <div
+        onClick={handleSearchBarClick}
+        css={[searchWrapper, customStyles?.searchWrapper]}
+      >
         <input //검색어 입력
           css={searchInput}
           type="text"
@@ -130,12 +147,12 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
         />
         {/* 검색버튼 */}
         <button onClick={handleSearch} css={searchButton}>
-          검색
+          <FaSearch css={searchIcon}/>
         </button>
       </div>
       {searchHistory.length > 0 &&
         isHistoryVisible && ( //검색 기록이 있는 경우에만 검색 기록 창 보여주도록 함
-          <div ref={historyRef} css={history}>
+          <div ref={historyRef} css={[history, customStyles?.history]}>
             {/* 검색 기록 리스트 */}
             <ul>
               {searchHistory.map((item, index) => (
