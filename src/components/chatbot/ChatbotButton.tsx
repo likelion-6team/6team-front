@@ -10,9 +10,9 @@ const chatbtn = css`
   height: 5rem;
   border-radius: 5rem;
   font-size: 1rem;
+  font-weight: bold;
   color: black;
   line-height: 180%;
-  weight: bold;
   border: none;
   background-color: white;
   &:hover {
@@ -23,13 +23,13 @@ const chatbtn = css`
     transition: 1s ease-out;
   }
   box-shadow: 0.5px 0.5px 3px 0.5px grey;
-  cursor: pointer;
   position: fixed;
   bottom: 3rem;
   right: 2.5rem;
   align-items: center;
   display: flex;
   padding-left: 4.5rem;
+  cursor: pointer;
 `;
 
 const chaticon = css`
@@ -40,6 +40,7 @@ const chaticon = css`
   position: fixed;
   bottom: 4rem;
   right: 8.5rem;
+  cursor: pointer;
 `;
 
 const chatwrapper = css`
