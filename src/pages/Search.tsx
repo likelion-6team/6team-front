@@ -20,6 +20,7 @@ export default function Search() {
   const customSearchBarStyles = {
     searchWrapper: css`
       width: 50rem;
+      margin-top: 0;
     `,
     history: css`
       width: 50rem;
@@ -36,9 +37,6 @@ export default function Search() {
 
   return (
     <Wrapper>
-      <div onClick={() => setClicked((prev) => !prev)}>
-        누르면 필터가 나옵니다
-      </div>
       <div css={topWrapper}>
         <div>로고</div>
         <SearchBar
@@ -46,6 +44,9 @@ export default function Search() {
           customStyles={customSearchBarStyles}
         />
         <div>필터</div>
+      </div>
+      <div onClick={() => setClicked((prev) => !prev)}>
+        누르면 필터가 나옵니다
       </div>
       <SearchResultBar result="234335" />
       {rank.map(({ image, model, modelHp, modelLp, id }) => {

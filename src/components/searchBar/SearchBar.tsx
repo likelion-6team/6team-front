@@ -20,22 +20,20 @@ const searchWrapper = css`
   display: flex;
   width: 72.5rem;
   margin-bottom: 1rem;
+  margin-top: -2.6rem;
   height: 3rem;
   border: 0.2rem solid;
   border-radius: 2rem;
   border-color: ${theme.colors["main-color"]};
-  position: absolute;
-  top: 28rem;
   background-color: white;
 `;
 
 const searchInput = css`
-  background-color: white;
   font-size: 1.4rem;
   width: 70rem;
-  border-radius: 2rem;
   border: none;
   outline: none;
+  border-radius: 2rem;
   ::placeholder {
     color: #a9a9a9;
   }
@@ -53,14 +51,14 @@ const searchButton = css`
   margin-top: 0.2rem;
   margin-right: 0.3rem;
   flex-shrink: 0;
-  background-color: transparent;
+  background-color: white;
 `;
 
 const history = css`
   background: white;
   padding-left: 1rem;
   padding-botton: 1.1rem;
-  margin-top: -0.5rem;
+  margin-top: 0.6rem;
   border: 0.13rem solid;
   border-radius: 0.8rem;
   border-color: white;
@@ -69,8 +67,8 @@ const history = css`
   padding-top: 0.6rem;
   font-size: 1.3rem;
   line-height: 2rem;
+  margin-top: -0.5rem;
   zindex: 1;
-  position: absolute;
 `;
 
 const searchIcon = css`
