@@ -12,7 +12,7 @@ import { useSetRecoilState } from "recoil";
 import { filterClicked } from "../recoil/atoms/filterClicked";
 import rank from "../data/rank.json";
 import RankCard from "../components/card/RankCard";
-import SearchBar2 from "../components/searchBar/SearchBar2";
+import SearchBar from "../components/searchBar/SearchBar";
 import { css } from "@emotion/react";
 
 export default function Search() {
@@ -34,9 +34,34 @@ export default function Search() {
     console.log("검색:", searchTerm);
   };
 
+  const customSearchBarStyles = {
+    searchWrapper: css`
+      width: 50rem;
+    `,
+    history: css`
+      width: 50rem;
+    `,
+  };
+
+  const topWrapper = css`
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  `;
+
   return (
     <Wrapper>
       <SearchHeader />
+      <div css={topWrapper}>
+        <div>로고</div>
+        <SearchBar
+          onSearch={handleSearch}
+          customStyles={customSearchBarStyles}
+        />
+        <div>필터</div>
+      </div>
       <SearchResultBar result="234335" />
       <GridContainer>
         {data.data &&
