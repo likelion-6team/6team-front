@@ -10,7 +10,6 @@ const chatbtn = css`
   height: 5rem;
   border-radius: 5rem;
   font-size: 1rem;
-  font-weight: bold;
   color: black;
   line-height: 180%;
   weight: bold;
@@ -54,14 +53,14 @@ export default function ChatbotButton() {
   const setClicked = useSetRecoilState(filterClicked);
   return (
     <>
-      <div css={chatwrapper}>
+      <div onClick={() => setClicked((prev) => !prev)} css={chatwrapper}>
         {" "}
         <img
           src={"Images/chatboticon.jpg"}
           alt="chatboticon"
           css={chaticon}
         ></img>
-        <button onClick={() => setClicked((prev) => !prev)} css={chatbtn}>
+        <button css={chatbtn}>
           맞춤형 <br></br>전자기기
         </button>
       </div>
