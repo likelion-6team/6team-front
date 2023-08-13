@@ -21,7 +21,11 @@ const searchWrapper = css`
   display: flex;
   width: 72.5rem;
   margin-bottom: 1rem;
+<<<<<<< HEAD
   margin-top: -1.8rem;
+=======
+  margin-top: -2.6rem;
+>>>>>>> dba6911 (feat: 검색창 위치 수정)
   height: 3rem;
   border: 0.2rem solid;
   border-radius: 2rem;
@@ -58,7 +62,11 @@ const searchButton = css`
 const history = css`
   background: white;
   padding-left: 1rem;
+<<<<<<< HEAD
   padding-bottom: 1.1rem;
+=======
+  padding-botton: 1.1rem;
+>>>>>>> dba6911 (feat: 검색창 위치 수정)
   margin-top: 0.6rem;
   border: 0.13rem solid;
   border-radius: 0.8rem;
@@ -68,9 +76,14 @@ const history = css`
   padding-top: 0.6rem;
   font-size: 1.3rem;
   line-height: 2rem;
+<<<<<<< HEAD
 
   margin-top: -0.5rem;
   z-index: 1;
+=======
+  margin-top: -0.5rem;
+  zindex: 1;
+>>>>>>> dba6911 (feat: 검색창 위치 수정)
 `;
 
 const searchIcon = css`

@@ -37,6 +37,7 @@ export default function Search() {
   const customSearchBarStyles = {
     searchWrapper: css`
       width: 50rem;
+      margin-top: 0;
     `,
     history: css`
       width: 50rem;
@@ -54,14 +55,6 @@ export default function Search() {
   return (
     <Wrapper>
       <SearchHeader />
-      <div css={topWrapper}>
-        <div>로고</div>
-        <SearchBar
-          onSearch={handleSearch}
-          customStyles={customSearchBarStyles}
-        />
-        <div>필터</div>
-      </div>
       <SearchResultBar result="234335" />
       <GridContainer>
         {data.data &&
