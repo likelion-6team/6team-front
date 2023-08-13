@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import { FaSearch  } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa";
 
 interface SearchProps {
   onSearch: (searchTerm: string) => void;
@@ -53,7 +53,7 @@ const searchButton = css`
   margin-top: 0.2rem;
   margin-right: 0.3rem;
   flex-shrink: 0;
-  background-color: transparent; 
+  background-color: transparent;
 `;
 
 const history = css`
@@ -69,7 +69,7 @@ const history = css`
   padding-top: 0.6rem;
   font-size: 1.3rem;
   line-height: 2rem;
-  zIndex: 1;
+  zindex: 1;
   position: absolute;
 `;
 
@@ -77,12 +77,11 @@ const searchIcon = css`
   color: #5b5b5b;
   width: 1.3rem;
   height: 1.4rem;
-`
+`;
 
 //여기까지 CSS
 
 const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
-
   // 검색어 상태&검색 기록 상태 초기화
   const [searchTerm, setSearchTerm] = useState("");
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
@@ -146,7 +145,7 @@ const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
         />
         {/* 검색버튼 */}
         <button onClick={handleSearch} css={searchButton}>
-          <FaSearch css={searchIcon}/>
+          <FaSearch css={searchIcon} />
         </button>
       </div>
       {searchHistory.length > 0 &&

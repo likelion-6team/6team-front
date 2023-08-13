@@ -25,7 +25,7 @@ export default function Search() {
       width: 50rem;
     `,
   };
-  
+
   const topWrapper = css`
     display: grid;
     grid-template-columns: 2fr 4fr 1fr;
