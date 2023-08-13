@@ -49,6 +49,7 @@ export default function Search() {
         누르면 필터가 나옵니다
       </div>
       <SearchResultBar result="234335" />
+
       {rank.map(({ image, model, modelHp, modelLp, id }) => {
         return (
           <RankCard
