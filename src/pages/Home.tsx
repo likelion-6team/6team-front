@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 
-import { useNavigate } from "react-router-dom";
 import RankCard from "../components/card/RankCard";
 import { css } from "@emotion/react";
 import Wrapper from "../components/Container/Wrapper";
@@ -40,8 +39,6 @@ const gridContainer = css`
 `;
 
 export default function Home() {
-  const navigate = useNavigate();
-
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
   };
@@ -49,13 +46,6 @@ export default function Home() {
     <>
       <Header />
       <Wrapper>
-        <div
-          onClick={() => {
-            navigate("/search");
-          }}
-        >
-          클릭하면 서치페이지로
-        </div>
         <SearchBar onSearch={handleSearch} />
         <div css={rankText}>실시간 랭킹</div>
         <div css={cards}>

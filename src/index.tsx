@@ -7,6 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./styles/theme";
 import { RecoilRoot } from "recoil";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,11 +17,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <RecoilRoot>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </RecoilRoot>
+      </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
