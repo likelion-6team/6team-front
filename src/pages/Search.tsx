@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
+import theme from "../styles/theme";
 import Wrapper from "../components/Container/Wrapper";
 import SearchResultBar from "../components/SearchResultsBar/SearchResultsBar";
 import FilterModal from "../components/modal/FilterModal";
@@ -19,13 +20,13 @@ export default function Search() {
   const { data, isLoading, isError } = useSearch(stuff!);
   console.log(data?.data);
   // const [totalStuff, setTotalStuff] = useState(data.data);
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (isError) {
-    return <p></p>;
-  }
+  // if (isError) {
+  //   return <p></p>;
+  // }
 
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
@@ -33,8 +34,9 @@ export default function Search() {
 
   const customSearchBarStyles = {
     searchWrapper: css`
-      width: 50rem;
-      margin-top: 0;
+      width: 47rem;
+      margin-top: 0.3rem;
+      margin-left: 0.5rem;
     `,
     history: css`
       width: 50rem;
@@ -57,15 +59,45 @@ export default function Search() {
     font-size: 1.3rem;
     font-weight: bold;
   `;
+
+  const FilterTheme = css`
+    text-align: center;
+    width: 5rem;
+    height: 2.875rem;
+    flex-shrink: 0;
+    margin: -0.7rem 0rem 0rem 0.5rem;
+    border-radius: 0.3125rem;
+    border: 2px solid ${theme.colors["--border-gray"]};
+    background: ${theme.colors["white"]};
+    color: #373737;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: ${theme.colors["main-color"]};
+      color: white;
+    }
+  `;
+
+  const LogoWrapper = css `
+    margin-top: -0.5rem;
+    margin-rignt: 2rem;
+  `;
+
+  const Logo = css `
+    width: 17rem;
+  `;
   return (
     <Wrapper>
       <div css={topWrapper}>
-        <div>로고</div>
+        <div css = {LogoWrapper}><img css = {Logo} src="/Images/TextLogo.png" alt="" /></div>
         <SearchBar
           onSearch={handleSearch}
           customStyles={customSearchBarStyles}
         />
-        <div>필터</div>
+        <button css={FilterTheme}>필터</button>
       </div>
       <div onClick={() => setClicked((prev) => !prev)}>
         누르면 필터가 나옵니다
