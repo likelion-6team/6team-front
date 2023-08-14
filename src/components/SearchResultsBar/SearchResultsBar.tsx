@@ -9,9 +9,7 @@ import { AiOutlineDown } from "react-icons/ai";
 
 const resultBox = css`
   display: flex;
-  max-width: 73.75rem;
-  height: 20rem;
-  margin: 10rem 0rem 10rem 0rem;
+  margin-bottom: 3rem;
   font-family: Inter;
 `;
 

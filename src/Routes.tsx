@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
+import Test from "./pages/Test";
 
 export interface RouteProps {
   path: string;
@@ -10,7 +11,8 @@ export interface RouteProps {
 
 export const routes: RouteProps[] = [
   { path: "/", element: <Home /> },
-  { path: "/search", element: <Search /> },
+  { path: "/search/:stuff", element: <Search /> },
+  { path: "/test", element: <Test /> },
 ];
 
 const RoutesSetting = () => (

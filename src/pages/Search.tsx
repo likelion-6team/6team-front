@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "../components/Container/Wrapper";
 import SearchResultBar from "../components/SearchResultsBar/SearchResultsBar";
 import FilterModal from "../components/modal/FilterModal";
@@ -9,9 +9,23 @@ import rank from "../data/rank.json";
 import RankCard from "../components/card/RankCard";
 import SearchBar from "../components/searchBar/SearchBar";
 import { css } from "@emotion/react";
+import { useLocation, useParams } from "react-router-dom";
+import { useSearch } from "../hooks/useSearch";
+import ColumnCard from "../components/card/ColumnCard";
 
 export default function Search() {
   const setClicked = useSetRecoilState(filterClicked);
+  const { stuff } = useParams();
+  const { data, isLoading, isError } = useSearch(stuff!);
+  console.log(data?.data);
+  // const [totalStuff, setTotalStuff] = useState(data.data);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p></p>;
+  }
 
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
@@ -34,7 +48,15 @@ export default function Search() {
     align-items: center;
     padding: 1rem;
   `;
-
+  const gridContainer = css`
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 15rem);
+    grid-gap: 3.4rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+  `;
   return (
     <Wrapper>
       <div css={topWrapper}>
@@ -49,40 +71,19 @@ export default function Search() {
         누르면 필터가 나옵니다
       </div>
       <SearchResultBar result="234335" />
-
-      {rank.map(({ image, model, modelHp, modelLp, id }) => {
-        return (
-          <RankCard
-            key={id}
-            img={image}
-            title={model}
-            highestPrice={modelHp}
-            lowestPrice={modelLp}
-            url=""
-            css={{
-              rankTest: css`
-                width: 65rem;
-                height: 30rem;
-              `,
-              imgEx: css`
-                width: 30rem;
-                height: 20rem;
-                margin-left: 5rem;
-                border: solid black;
-                border-radius: none;
-              `,
-              texts: css`
-                font-size: 1.5rem;
-                line-height: 250%;
-                margin-left: 3rem;
-              `,
-              product: css`
-                font-size: 2.5rem;
-              `,
-            }}
+      <div css={gridContainer}>
+        {data?.data.map((d: any) => (
+          <ColumnCard
+            title={d.title}
+            price={d.price}
+            shop={d.site}
+            url={d.url}
+            location={d.region}
+            img={d.image}
+            date={d.date}
           />
-        );
-      })}
+        ))}
+      </div>
       <FilterModal title="필터" />
     </Wrapper>
   );

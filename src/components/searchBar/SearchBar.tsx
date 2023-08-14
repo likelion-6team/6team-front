@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 interface SearchProps {
   onSearch: (searchTerm: string) => void;
@@ -20,7 +21,7 @@ const searchWrapper = css`
   display: flex;
   width: 72.5rem;
   margin-bottom: 1rem;
-  margin-top: -2.6rem;
+  margin-top: -1.8rem;
   height: 3rem;
   border: 0.2rem solid;
   border-radius: 2rem;
@@ -57,7 +58,7 @@ const searchButton = css`
 const history = css`
   background: white;
   padding-left: 1rem;
-  padding-botton: 1.1rem;
+  padding-bottom: 1.1rem;
   margin-top: 0.6rem;
   border: 0.13rem solid;
   border-radius: 0.8rem;
@@ -68,7 +69,7 @@ const history = css`
   font-size: 1.3rem;
   line-height: 2rem;
   margin-top: -0.5rem;
-  zindex: 1;
+  z-index: 1;
 `;
 
 const searchIcon = css`
@@ -81,6 +82,7 @@ const searchIcon = css`
 
 const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
   // 검색어 상태&검색 기록 상태 초기화
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [isHistoryVisible, setIsHistoryVisible] = useState(false); // 검색 기록 창 보이기 여부
@@ -105,12 +107,10 @@ const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
       // 검색어가 비어있지 않은 경우 검색 동작 처리
       // 검색 동작을 위해 onSearch 함수 호출하고 검색어를 인자로 전달
       onSearch(searchTerm);
-
       // 검색 기록 상태를 업데이트하여 새로운 검색어를 기록에 추가
       setSearchHistory((prevHistory) => [...prevHistory, searchTerm]);
 
-      // 검색어 상태를 초기화해 입력 창 비우기
-      setSearchTerm("");
+      navigate(`/search/${searchTerm}`);
     }
   };
 
