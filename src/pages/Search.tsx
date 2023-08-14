@@ -20,13 +20,13 @@ export default function Search() {
   const { data, isLoading, isError } = useSearch(stuff!);
   console.log(data?.data);
   // const [totalStuff, setTotalStuff] = useState(data.data);
-  // if (isLoading) {
-  //   return <p>Loading...</p>;
-  // }
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
-  // if (isError) {
-  //   return <p></p>;
-  // }
+  if (isError) {
+    return <p></p>;
+  }
 
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
