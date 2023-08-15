@@ -4,10 +4,12 @@ import React from "react";
 import Wrapper from "../Container/Wrapper";
 
 const loadingMessage = css`
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  text-align: center;
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
@@ -21,6 +23,7 @@ export default function Spinner() {
       <Wrapper>
         <div css={loadingMessage}>
           <h1>잠시만 기다려 주세요. </h1>
+          <br />
           <img src="Images/Spinner.gif" alt="로딩중" />
         </div>
       </Wrapper>
