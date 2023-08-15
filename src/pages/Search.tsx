@@ -14,6 +14,7 @@ import rank from "../data/rank.json";
 import RankCard from "../components/card/RankCard";
 import SearchBar from "../components/searchBar/SearchBar";
 import { css } from "@emotion/react";
+import Spinner from "../components/Spinner/Spinner";
 
 export default function Search() {
   const { stuff } = useParams();
@@ -23,11 +24,11 @@ export default function Search() {
 
   // const [totalStuff, setTotalStuff] = useState(data.data);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
 
   if (isError) {
-    return <p></p>;
+    return <Spinner />;
   }
 
   const handleSearch = (searchTerm: string) => {
