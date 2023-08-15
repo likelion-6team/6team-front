@@ -4,3 +4,8 @@ export const filterClicked = atom<boolean>({
   key: "filterClicked", // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
+
+export const chatBotClicked = atom<boolean>({
+  key: "chatBotClicked",
+  default: false,
+});

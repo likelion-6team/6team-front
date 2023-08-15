@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import SearchBar from "../searchBar/SearchBar";
 import theme from "../../styles/theme";
 import { useSetRecoilState } from "recoil";
-import { filterClicked } from "../../recoil/atoms/filterClicked";
+import { filterClicked } from "../../recoil/atoms/clicked";
 import { useNavigate } from "react-router-dom";
 
 const topWrapper = css`

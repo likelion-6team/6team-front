@@ -3,7 +3,7 @@
 import { css } from "@emotion/react";
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { filterClicked } from "../../recoil/atoms/filterClicked";
+import { chatBotClicked, filterClicked } from "../../recoil/atoms/clicked";
 
 const chatbtn = css`
   width: 10rem;
@@ -51,7 +51,7 @@ const chatwrapper = css`
 `;
 
 export default function ChatbotButton() {
-  const setClicked = useSetRecoilState(filterClicked);
+  const setClicked = useSetRecoilState(chatBotClicked);
   return (
     <>
       <div onClick={() => setClicked((prev) => !prev)} css={chatwrapper}>

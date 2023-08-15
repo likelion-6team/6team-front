@@ -1,7 +1,7 @@
 import React from "react";
 import ModalContainer from "../Container/ModalContainer";
 import { useRecoilState } from "recoil";
-import { filterClicked } from "../../recoil/atoms/filterClicked";
+import { filterClicked } from "../../recoil/atoms/clicked";
 import ModalTitleText from "../text/ModalTitleText";
 import MultiRangeSlider from "../input/MultiRangeSlider";
 import ModalContentContainer from "../Container/ModalContentContainer";
