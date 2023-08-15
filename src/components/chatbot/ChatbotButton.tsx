@@ -3,7 +3,7 @@
 import { css } from "@emotion/react";
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { chatBotClicked, filterClicked } from "../../recoil/atoms/clicked";
+import { chatBotClicked } from "../../recoil/atoms/clicked";
 
 const chatbtn = css`
   width: 10rem;

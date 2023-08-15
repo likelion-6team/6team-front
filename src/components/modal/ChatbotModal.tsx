@@ -1,47 +1,41 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import ChatbotModalContainer from "../chatbot/ChatbotModalContainer";
 import { useRecoilState } from "recoil";
 import { chatBotClicked } from "../../recoil/atoms/clicked";
-import { css } from "@emotion/react";
 import ChatbotModalContentContainer from "../chatbot/ChatbotContentModalContainer";
 import BotChat from "../chatbot/chat/BotChat";
 import UserChat from "../chatbot/chat/UserChat";
+import { useGetChatMessages } from "../../hooks/useChat";
+import ChatContentsContainer from "../chatbot/ChatContentsContainer";
 
 interface ChatbotModalProps {
   title: string;
 }
 
-interface ChatData {
+export interface ChatData {
   type: "assistant" | "user";
   message: string;
 }
 
-const chatBotContainer = css`
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
 export default function ChatbotModal({ title }: ChatbotModalProps) {
   const [clicked, setClicked] = useRecoilState<boolean>(chatBotClicked);
   const [userInputValue, setUserInputValue] = useState<string>("");
-  const [messages, setMessages] = useState<ChatData[]>([
-    {
-      type: "assistant",
-      message:
-        "당신에게 알맞는 전자기기를 추천해드릴게요. 어떤 용도로 사용하시나요",
-    },
-  ]);
-  const handleUserInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      setMessages([...messages, { type: "user", message: userInputValue }]);
-      setUserInputValue("");
-    }
-  };
+  const { handleUserInput, isLoading, isError, messages } = useGetChatMessages(
+    userInputValue,
+    setUserInputValue
+  );
+
+  const useMemoMessage = useMemo(() => {
+    return messages.map(({ type, message }: ChatData, index: number) =>
+      type === "assistant" ? (
+        <BotChat text={message} key={index} />
+      ) : (
+        <UserChat text={message} key={index} />
+      )
+    );
+  }, [messages]);
 
   return (
     <ChatbotModalContainer
@@ -50,20 +44,18 @@ export default function ChatbotModal({ title }: ChatbotModalProps) {
       title={title}
     >
       <ChatbotModalContentContainer>
-        <div css={chatBotContainer}>
-          {messages.map(({ type, message }: ChatData) =>
-            type === "assistant" ? (
-              <BotChat text={message} />
-            ) : (
-              <UserChat text={message} />
-            )
+        <ChatContentsContainer>
+          {useMemoMessage}
+          {isLoading && <BotChat text="로딩"></BotChat>}
+          {isError && (
+            <BotChat text="죄송해요! 서버가 원활하지 않아요! 다시 시도해주세요!"></BotChat>
           )}
-        </div>
+        </ChatContentsContainer>
         <input
           type="text"
           value={userInputValue}
           onChange={(e) => setUserInputValue(e.target.value)}
-          onKeyDown={handleUserInput}
+          onKeyPress={handleUserInput}
         />
       </ChatbotModalContentContainer>
     </ChatbotModalContainer>
