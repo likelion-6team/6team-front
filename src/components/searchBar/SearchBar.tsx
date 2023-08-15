@@ -153,7 +153,7 @@ const SearchBar: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
           type="text"
           value={searchTerm}
           onChange={handleInputChange}
-          onKeyPress={handleKeyPress} // 엔터키 누를 때 검색되도록 함
+          onKeyDown={handleKeyPress} // 엔터키 누를 때 검색되도록 함
           placeholder="검색어를 입력하세요"
         />
         {/* 검색버튼 */}

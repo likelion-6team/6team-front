@@ -2,12 +2,13 @@
 
 import { css } from "@emotion/react";
 import React, { ReactNode } from "react";
-import theme from "../../styles/theme";
 
 const ChatbotContentDiv = css`
-  padding: 2rem 0;
-  margin: 0 1.5rem;
-  border-bottom: 1px solid ${theme.colors["--border-gray"]};
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 interface ChatbotModalContentContainerProps {

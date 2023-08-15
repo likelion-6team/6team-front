@@ -13,17 +13,9 @@ interface ChatbotModalContainerProps {
   title: string;
 }
 
-const ModalBackGroundDiv = ({ clicked }: { clicked: boolean }) => css`
+const ModalContainerStyle = ({ clicked }: { clicked: boolean }) => css`
   display: ${clicked ? "flex" : "none"};
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-  padding-top: 10rem;
-`;
-
-const ModalContainerStyle = css`
+  flex-direction: column;
   z-index: 999;
   position: fixed;
   right: 2rem;
@@ -42,6 +34,7 @@ const ModalContainerStyle = css`
 
 const ModalTitleDiv = css`
   display: flex;
+  width: 100%;
   justify-content: center;
   margin-top: 1rem;
   padding-bottom: 1rem;
@@ -76,19 +69,17 @@ export default function ChatbotModalContainer({
 }: ChatbotModalContainerProps) {
   return (
     <>
-      <div css={ModalBackGroundDiv({ clicked })}>
-        <div css={ModalContainerStyle} onClick={(e) => e.stopPropagation()}>
-          <VscClose
-            css={ModalCloseIcon}
-            onClick={(e) => {
-              setClicked(false);
-            }}
-          />
-          <div css={ModalTitleDiv}>
-            <div css={ModalTitleText}>{title}</div>
-          </div>
-          {children}
+      <div css={ModalContainerStyle({ clicked })}>
+        <VscClose
+          css={ModalCloseIcon}
+          onClick={(e) => {
+            setClicked(false);
+          }}
+        />
+        <div css={ModalTitleDiv}>
+          <div css={ModalTitleText}>{title}</div>
         </div>
+        {children}
       </div>
     </>
   );
