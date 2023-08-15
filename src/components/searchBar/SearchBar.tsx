@@ -80,7 +80,7 @@ const searchIcon = css`
 
 //여기까지 CSS
 
-const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
+const SearchBar: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
   // 검색어 상태&검색 기록 상태 초기화
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
@@ -161,4 +161,4 @@ const Search: React.FC<SearchProps> = ({ onSearch, customStyles }) => {
   );
 };
 
-export default Search;
+export default SearchBar;

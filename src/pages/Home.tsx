@@ -11,31 +11,14 @@ import stuff from "../data/stuff.json";
 import Footer from "../components/footer/Footer";
 import ChatbotButton from "../components/chatbot/ChatbotButton";
 import ChatbotModal from "../components/modal/ChatbotModal";
+import GridContainer from "../components/Container/GridContainer";
+import RankCardContainer from "../components/Container/RankCardContainer";
 
 const rankText = css`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
   margin-top: 1rem;
-`;
-
-const cards = css`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0.1rem;
-  border-radius: 1rem;
-  height: 30rem;
-  margin: auto;
-`;
-
-const gridContainer = css`
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(4, 15rem);
-  grid-gap: 3.4rem;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: bold;
 `;
 
 export default function Home() {
@@ -48,7 +31,7 @@ export default function Home() {
       <Wrapper>
         <SearchBar onSearch={handleSearch} />
         <div css={rankText}>실시간 랭킹</div>
-        <div css={cards}>
+        <RankCardContainer>
           {rank.map(({ image, model, modelHp, modelLp, id }) => {
             return (
               <RankCard
@@ -61,9 +44,9 @@ export default function Home() {
               />
             );
           })}
-        </div>
+        </RankCardContainer>
         <div css={rankText}>인기 매물</div>
-        <div css={gridContainer}>
+        <GridContainer>
           {stuff.map(({ image, title, price, region, date, site, url, id }) => {
             return (
               <ColumnCard
@@ -78,7 +61,7 @@ export default function Home() {
               />
             );
           })}
-        </div>
+        </GridContainer>
       </Wrapper>
       <ChatbotButton />
       <ChatbotModal title="맞춤형 전자기기를 추천해드려요" />

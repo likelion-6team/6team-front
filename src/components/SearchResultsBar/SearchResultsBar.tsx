@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
-import ColumnCard from "../card/ColumnCard";
 import stuff from "../../data/stuff.json";
 import React, { useState, useCallback } from "react";
 import { AiOutlineDown } from "react-icons/ai";
