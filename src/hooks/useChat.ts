@@ -14,7 +14,6 @@ export function useChatBot(
   return useMutation(async () => chatBotApi(userMessages, assistantMessages), {
     onSuccess: (data) => {
       console.log(data.assistant);
-      return data.assistant;
     },
     onError: (error) => {
       console.log(error);
