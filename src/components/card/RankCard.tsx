@@ -73,7 +73,7 @@ export default function RankCard({
           <div css={product}>{title}</div>
           <div css={price}>
             <div>최고가: {highestPrice}</div>
-            <div>최고가: {lowestPrice}</div>
+            <div>최저가: {lowestPrice}</div>
           </div>
         </div>
       </div>
