@@ -7,37 +7,40 @@ import React, { useState, useCallback } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
 const resultBox = css`
-  display: flex;
+  max-width: 73.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
   margin-bottom: 3rem;
   font-family: Inter;
+  grid-gap: 2rem;
 `;
 
 const searchResult = css`
+  margin-right: 1rem;
   text-align: center;
   font-size: 1.875rem;
-  font-style: normal;
   font-weight: 600;
-  line-height: 1.3125rem; /* 70% */
+  line-height: 1.3125rem;
   letter-spacing: -0.02rem;
+  white-space: nowrap;
 `;
 
 const totalSearchResult = css`
   color: #5a5a5a;
-  text-align: center;
   font-size: 1.5625rem;
-  font-style: normal;
   font-weight: 600;
-  line-height: 1.3125rem; /* 84% */
-  margin: 0rem 2.5rem 0rem 2.5rem;
+  line-height: 1.3125rem;
+  white-space: nowrap;
+  margin-right: 2rem;
 `;
 
 const ArrangeByShop = css`
-  text-align: center;
   width: 7.375rem;
   height: 2.875rem;
-  flex-shrink: 0;
 
-  margin: 0rem 1.5rem 0rem 0rem;
   border-radius: 0.3125rem;
   border: 2px solid ${theme.colors["--border-gray"]};
   background: ${theme.colors["white"]};
@@ -74,7 +77,7 @@ const DropdownContainer = styled.button`
   text-align: center;
   align-items: center;
 
-  margin: 0rem 0rem 0rem 16rem;
+  margin: 0rem 0rem 0rem 15.37rem;
 
   &:hover {
     cursor: pointer;
@@ -212,27 +215,28 @@ export default function SearchResultBar({ result }: SearchResult) {
   return (
     <>
       <div css={resultBox}>
-        <div css={searchResult}>
-          검색결과
-          <span css={totalSearchResult}>{result}개</span>
-          <button
-            css={ArrangeByShop}
-            onClick={() => handleShowSelectedShop("당근마켓")}
-          >
-            당근마켓
-          </button>
-          <button
-            css={ArrangeByShop}
-            onClick={() => handleShowSelectedShop("번개장터")}
-          >
-            번개장터
-          </button>
-          <button
-            css={ArrangeByShop}
-            onClick={() => handleShowSelectedShop("중고나라")}
-          >
-            중고나라
-          </button>
+        <p css={searchResult}>검색결과</p>
+        <span css={totalSearchResult}>{result}개</span>
+        <button
+          css={ArrangeByShop}
+          onClick={() => handleShowSelectedShop("당근마켓")}
+        >
+          당근마켓
+        </button>
+        <button
+          css={ArrangeByShop}
+          onClick={() => handleShowSelectedShop("번개장터")}
+        >
+          번개장터
+        </button>
+        <button
+          css={ArrangeByShop}
+          onClick={() => handleShowSelectedShop("중고나라")}
+        >
+          중고나라
+        </button>
+        <div></div>
+        <div>
           <DropdownContainer>
             <DropdownBody onClick={onActiveToggle}>
               {item ? (

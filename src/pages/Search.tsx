@@ -9,7 +9,6 @@ import ColumnCard from "../components/card/ColumnCard";
 import SearchHeader from "../components/Header/SearchHeader";
 import GridContainer from "../components/Container/GridContainer";
 import { useSetRecoilState } from "recoil";
-import { filterClicked } from "../recoil/atoms/filterClicked";
 import rank from "../data/rank.json";
 import RankCard from "../components/card/RankCard";
 import SearchBar from "../components/searchBar/SearchBar";
