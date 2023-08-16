@@ -17,13 +17,17 @@ const loadingMessage = css`
   letter-spacing: -0.02rem;
 `;
 
+const img = css`
+  margin-top: 3rem;
+  width: 5rem;
+`;
 export default function LoadingSpinner() {
   return (
     <>
       <Wrapper>
         <div css={loadingMessage}>
-          <h1>잠시만 기다려 주세요. </h1>
-          <img src="Images/Spinner.svg" alt="로딩중" />
+          <h1>잠시만 기다려 주세요...</h1>
+          <img css={img} src="/Images/Loading.svg" alt="로딩중" />
         </div>
       </Wrapper>
     </>
