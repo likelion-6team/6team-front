@@ -8,12 +8,6 @@ interface RankCardProps {
   title: string;
   highestPrice: string;
   lowestPrice: string;
-  css?: {
-    rankTest?: any;
-    imgEx?: any;
-    texts?: any;
-    product?: any;
-  };
 }
 
 export default function RankCard({
@@ -22,38 +16,25 @@ export default function RankCard({
   title,
   highestPrice,
   lowestPrice,
-  css: customStyles,
 }: RankCardProps) {
   const rankTest = css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    padding: 20px;
-
-    ${customStyles?.rankTest}
-  `;
-
-  const imgEx = css`
-    width: 15rem;
-    height: 11rem;
-    margin-left: 1rem;
-    ${customStyles?.imgEx}
+    grid-gap: 2px;
+    cursor: pointer;
   `;
 
   const texts = css`
     display: grid;
     grid-template-rows: repeat(2, 0.3fr);
-    gap: 2px;
+    grid-gap: 2px;
     padding: 30px;
     line-height: 300%;
-    ${customStyles?.texts};
   `;
 
   const product = css`
     font-size: 1.2rem;
     font-weight: bold;
-
-    ${customStyles?.product}
   `;
 
   const price = css`
@@ -68,7 +49,7 @@ export default function RankCard({
   return (
     <>
       <div onClick={handleClick} css={rankTest}>
-        <img css={imgEx} src={img} alt="img" />
+        <img src={img} alt="img" />
         <div css={texts}>
           <div css={product}>{title}</div>
           <div css={price}>
