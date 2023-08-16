@@ -8,6 +8,7 @@ import { useSearch } from "../hooks/useSearch";
 import ColumnCard from "../components/card/ColumnCard";
 import SearchHeader from "../components/Header/SearchHeader";
 import GridContainer from "../components/Container/GridContainer";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 export default function Search() {
   const { stuff } = useParams();
@@ -17,7 +18,7 @@ export default function Search() {
 
   // const [totalStuff, setTotalStuff] = useState(data.data);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <LoadingSpinner />;
   }
 
   if (isError) {
