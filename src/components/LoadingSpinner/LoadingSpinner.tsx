@@ -23,7 +23,7 @@ export default function LoadingSpinner() {
       <Wrapper>
         <div css={loadingMessage}>
           <h1>잠시만 기다려 주세요. </h1>
-          <img src="Images/spinner.gif" alt="로딩중" />
+          <img src="Images/Spinner.svg" alt="로딩중" />
         </div>
       </Wrapper>
     </>
