@@ -3,6 +3,12 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  maxFilterDefault,
+  maxRange,
+  minRange,
+} from "../../recoil/atoms/filtering";
 
 interface SliderInnerProps {
   rangeMinPercent: number;
@@ -80,15 +86,18 @@ const PriceTextTitle = css`
 `;
 
 const defaultMinValue = 0;
-const defaultMaxValue = 5000000;
 const priceGap = 1000;
 
-export default function MultiRangeSlider() {
-  const [rangeMinValue, setRangeMinValue] = useState<number>(defaultMinValue);
-  const [rangeMaxValue, setRangeMaxValue] = useState<number>(defaultMaxValue);
+function MultiRangeSlider() {
+  const maxFilterDefaultValue = useRecoilValue(maxFilterDefault);
+  // const [rangeMinValue, setRangeMinValue] = useState<number>(defaultMinValue);
+  // const [rangeMaxValue, setRangeMaxValue] = useState<number>(
+  //   maxFilterDefaultValue
+  // );
+  const [rangeMinValue, setRangeMinValue] = useRecoilState(minRange);
+  const [rangeMaxValue, setRangeMaxValue] = useRecoilState(maxRange);
   const [rangeMinPercent, setRangeMinPercent] = useState<number>(0);
   const [rangeMaxPercent, setRangeMaxPercent] = useState<number>(0);
-
   const rangeMinValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRangeMinValue(parseInt(e.target.value));
   };
@@ -102,56 +111,60 @@ export default function MultiRangeSlider() {
       setRangeMaxValue(rangeMinValue + priceGap);
       setRangeMinValue(rangeMaxValue - priceGap);
     } else {
-      setRangeMinPercent((rangeMinValue / defaultMaxValue) * 100);
-      setRangeMaxPercent(100 - (rangeMaxValue / defaultMaxValue) * 100);
+      setRangeMinPercent((rangeMinValue / maxFilterDefaultValue) * 100);
+      setRangeMaxPercent(100 - (rangeMaxValue / maxFilterDefaultValue) * 100);
     }
   };
 
   return (
-    <div css={MultiRangeSliderDiv}>
-      <div css={MultiRangeSliderOutside}>
-        <div
-          css={MultiRangeSliderInner({ rangeMinPercent, rangeMaxPercent })}
-        />
-        <input
-          css={MultiRangeInput}
-          type="range"
-          min={defaultMinValue}
-          max={defaultMaxValue - priceGap}
-          value={rangeMinValue}
-          onChange={(e) => {
-            rangeMinValueHandler(e);
-            twoRangeHandler();
-          }}
-          step="1000"
-        />
-        <input
-          css={MultiRangeInput}
-          type="range"
-          min={defaultMinValue + priceGap}
-          max={defaultMaxValue}
-          value={rangeMaxValue}
-          onChange={(e) => {
-            rangeMaxValueHandler(e);
-            twoRangeHandler();
-          }}
-          step="1000"
-        />
-      </div>
-      <div css={PriceTextContainer}>
-        <div css={PriceTextDiv}>
-          <span css={PriceTextTitle}>최저 가격</span>
-          <span>₩{rangeMinValue}</span>
+    <>
+      <div css={MultiRangeSliderDiv}>
+        <div css={MultiRangeSliderOutside}>
+          <div
+            css={MultiRangeSliderInner({ rangeMinPercent, rangeMaxPercent })}
+          />
+          <input
+            css={MultiRangeInput}
+            type="range"
+            min={defaultMinValue}
+            max={maxFilterDefaultValue - priceGap}
+            value={rangeMinValue}
+            onChange={(e) => {
+              rangeMinValueHandler(e);
+              twoRangeHandler();
+            }}
+            step={priceGap}
+          />
+          <input
+            css={MultiRangeInput}
+            type="range"
+            min={defaultMinValue + priceGap}
+            max={maxFilterDefaultValue}
+            value={rangeMaxValue}
+            onChange={(e) => {
+              rangeMaxValueHandler(e);
+              twoRangeHandler();
+            }}
+            step={priceGap}
+          />
         </div>
-        <div>-</div>
-        <div css={PriceTextDiv}>
-          <span css={PriceTextTitle}>최고 가격</span>
-          <span>
-            ₩{rangeMaxValue}
-            {rangeMaxValue === defaultMaxValue ? "+" : ""}
-          </span>
+        <div css={PriceTextContainer}>
+          <div css={PriceTextDiv}>
+            <span css={PriceTextTitle}>최저 가격</span>
+            <span>₩{rangeMinValue.toLocaleString()}</span>
+          </div>
+          <div>-</div>
+          <div css={PriceTextDiv}>
+            <span css={PriceTextTitle}>최고 가격</span>
+            <span>
+              ₩{rangeMaxValue.toLocaleString()}
+              {rangeMaxValue === maxFilterDefaultValue ? "+" : ""}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
+
+export default React.memo(MultiRangeSlider);

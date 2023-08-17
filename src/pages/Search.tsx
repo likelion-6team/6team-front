@@ -27,7 +27,9 @@ export default function Search() {
   return (
     <Wrapper>
       <SearchHeader />
-      {data.filter_code === "0" ? null : <SearchResultBar result="234335" />}
+      {data.filter_code === "0" ? null : (
+        <SearchResultBar result={data.data ? data.data.length : 0} />
+      )}
 
       {data.filter_code === "0" ? (
         <EmptyCard />
@@ -54,10 +56,9 @@ export default function Search() {
         />)
         )}}   */}
 
-      <SearchResultBar result="234335"/>
       <GridContainer>
-        {data.data &&
-          data.data.map((d: any, index: number) => (
+        {data &&
+          data.data?.map((d: any, index: number) => (
             <ColumnCard
               key={index}
               title={d.title}
@@ -70,6 +71,7 @@ export default function Search() {
             />
           ))}
       </GridContainer>
+
       <FilterModal title="필터" />
     </Wrapper>
   );

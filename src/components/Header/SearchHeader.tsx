@@ -70,7 +70,7 @@ export default function SearchHeader() {
       <div css={LogoWrapper} onClick={() => navigate("/")}>
         <img css={Logo} src="/Images/TextLogo.png" alt="" />
       </div>
-      <SearchBar onSearch={handleSearch} customStyles={customSearchBarStyles} />
+      <SearchBar onSearch={handleSearch} customStyles={customSearchBarStyles}/>
       <button onClick={() => setClicked(true)} css={FilterTheme}>
         필터
       </button>

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
@@ -23,6 +24,7 @@ root.render(
             <App />
           </ThemeProvider>
         </RecoilRoot>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>

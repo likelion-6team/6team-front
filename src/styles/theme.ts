@@ -11,6 +11,7 @@ const theme = {
     "footer-lightgrey": "#f1f3f5",
     "footer-grey": "#868e96",
     "footer-darkgrey": "#212529",
+    "--button-text-color": "#373737",
   },
 };
 
