@@ -15,17 +15,20 @@ import EmptyCard from "../components/card/EmptyCard";
 export default function Search() {
   const { stuff } = useParams();
   const { data, isLoading, isError } = useSearch(stuff!);
-  //배포시 삭제
-  console.log(data?.data);
 
-  // const [totalStuff, setTotalStuff] = useState(data.data);
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
   if (isError) {
-    return <p></p>;
+    return <p>Error loading data.</p>;
   }
+  
+  // 날짜 데이터 변환
+  const transformedData = data.data.map((d: any) => ({
+    ...d,
+    formattedDate: formatDate(d.date),
+  }));
 
   return (
     <Wrapper>
@@ -58,21 +61,31 @@ export default function Search() {
         )}}   */}
 
       <GridContainer>
-        {data.data &&
-          data.data.map((d: any, index: number) => (
-            <ColumnCard
-              key={index}
-              title={d.title}
-              price={d.price}
-              shop={d.site}
-              url={d.url}
-              location={d.region}
-              img={d.image}
-              date={d.date}
-            />
-          ))}
+        {transformedData.map((d: any, index: number) => (
+          <ColumnCard
+            key={index}
+            title={d.title}
+            price={d.price}
+            shop={d.site}
+            url={d.url}
+            location={d.region}
+            img={d.image}
+            date={d.formattedDate} //여기를 d.date로 수정해야할지도
+          />
+        ))}
       </GridContainer>
       <FilterModal title="필터" />
     </Wrapper>
   );
+}
+
+// 날짜 포맷 변환 함수
+// API로부터 받아오는 날짜는 20230810의 형태인데
+// toLocaleDateString를 사용하려면 2023-08-10의 형태가 되어야 합니다.
+// 따라서 날짜 포맷 변환 함수를 따로 작성해 주었습니다.
+function formatDate(rawDate: string) {
+  const year = rawDate.substr(0, 4); // 문자열의 첫 번째부터 4개의 문자열 추출 - 2023
+  const month = rawDate.substr(4, 2); // 문자열의 다섯 번째부터 2개의 문자열 추출 - 08
+  const day = rawDate.substr(6, 2); // 문자열의 일곱 번째부터 2개의 문자열 추출 - 10
+  return `${year}-${month}-${day}`; // 2023-08-10 리턴
 }

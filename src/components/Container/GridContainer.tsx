@@ -11,7 +11,7 @@ const gridContainer = css`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, 15rem);
-  grid-gap: 3.4rem;
+  grid-gap: 4.5rem;
   margin-bottom: 1rem;
   font-size: 1.3rem;
   font-weight: bold;

@@ -31,7 +31,7 @@ export function useGetChatMessages(
     {
       type: "assistant",
       message:
-        "당신에게 알맞는 전자기기를 추천해드릴게요. 어떤 용도로 사용하시나요",
+        "당신에게 알맞는 전자기기를 추천해드릴게요. 어떤 용도로 사용하시나요?",
     },
   ]);
 
