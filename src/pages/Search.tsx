@@ -9,6 +9,8 @@ import ColumnCard from "../components/card/ColumnCard";
 import SearchHeader from "../components/Header/SearchHeader";
 import GridContainer from "../components/Container/GridContainer";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
+import SearchMainCard from "../components/card/SearchMainCard";
+import EmptyCard from "../components/card/EmptyCard";
 
 export default function Search() {
   const { stuff } = useParams();
@@ -28,7 +30,33 @@ export default function Search() {
   return (
     <Wrapper>
       <SearchHeader />
-      <SearchResultBar result="234335" />
+      {data.filter_code === "0" ? null : <SearchResultBar result="234335" />}
+
+      {data.filter_code === "0" ? (
+        <EmptyCard />
+      ) : (
+        <SearchMainCard
+          newImage=""
+          newProduct="맥북"
+          averagePrice="99999999"
+          lowestPrice="99999"
+        />
+      )}
+
+      {/*     {data.filter_code === "0" ? ( 
+        <EmptyCard />
+      ) : 
+          {data.new &&
+          data.new.map((d: any, index: number) => (
+        <SearchMainCard
+          key={index}
+          newImage={d.new_img}
+          newProduct={d.new}
+          averagePrice={d.mean}
+          lowestPrice={d.min}
+        />)
+        )}}   */}
+
       <GridContainer>
         {data.data &&
           data.data.map((d: any, index: number) => (
@@ -44,7 +72,6 @@ export default function Search() {
             />
           ))}
       </GridContainer>
-      {data.new && <div>{data.new[0].new}</div>}
       <FilterModal title="필터" />
     </Wrapper>
   );
