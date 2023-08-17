@@ -3,10 +3,10 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
-import empty from "./empty.jpg";
+import empty from "./empty.png";
 
 const emptyImg = css`
-  margin-top: 5rem;
+  margin-top: 8rem;
   margin-bottom: 2rem;
   width: 12rem;
   height: 12rem;
