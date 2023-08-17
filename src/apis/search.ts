@@ -5,6 +5,7 @@ export const searchApi = async (stuff: string) => {
     params: { q: stuff },
   });
   const d = JSON.parse(data);
+
   return d;
 };
 

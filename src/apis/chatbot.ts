@@ -14,6 +14,7 @@ export const chatBotApi = async (
       headers: { "Content-Type": "application/json" },
     }
   );
+
   const d = data;
   return d;
 };

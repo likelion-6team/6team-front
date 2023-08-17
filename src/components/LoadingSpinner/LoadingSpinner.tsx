@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import React, { useState } from "react";
+import React from "react";
 import Wrapper from "../Container/Wrapper";
 
 const loadingMessage = css`

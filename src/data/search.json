@@ -1,0 +1,103 @@
+{
+  "filter_code": "1",
+  "new": [
+    {
+      "new_img": "샘플1이미지",
+      "new": "샘플1",
+      "mean": 62050,
+      "min": 9000
+    }
+  ],
+  "data": [
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "책상 팝니다.",
+      "price": 200000,
+      "region": "대전시 중구",
+      "date": "2023-07-03",
+      "site": "당근마켓",
+      "url": "www.naver.com",
+      "id": 1
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "선풍기 팔아요~",
+      "price": 300000,
+      "region": "용인시 모현읍",
+      "date": "2023-08-06",
+      "site": "번개장터",
+      "url": "www.naver.com",
+      "id": 2
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "가구 팔아요",
+      "price": 400000,
+      "region": "인천시 중구",
+      "date": "2022-08-03",
+      "site": "당근마켓",
+      "url": "www.naver.com",
+      "id": 3
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "LG 그램 팝니다.",
+      "price": 500000,
+      "region": "대구시 중구",
+      "date": "2023-06-03",
+      "site": "번개장터",
+      "url": "www.naver.com",
+      "id": 4
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "아이폰 11",
+      "price": 1000000,
+      "region": "부산시",
+      "date": "2023-08-02",
+      "site": "번개장터",
+      "url": "www.naver.com",
+      "id": 5
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "아이폰 14",
+      "price": 900000,
+      "region": "제주시",
+      "date": "2023-08-01",
+      "site": "당근마켓",
+      "url": "www.naver.com",
+      "id": 6
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "아이폰 12 pro 팝니다.",
+      "price": 2000000,
+      "region": "서울시 강동구",
+      "date": "2023-08-02",
+      "site": "중고나라",
+      "url": "www.naver.com",
+      "id": 7
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "아이폰 12 pro",
+      "price": 3000000,
+      "region": "용인시 모현읍",
+      "date": "2023-07-23",
+      "site": "중고나라",
+      "url": "www.naver.com",
+      "id": 8
+    },
+    {
+      "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
+      "title": "맥북 13",
+      "price": 800000,
+      "region": "용인시 모현읍",
+      "date": "2023-05-03",
+      "site": "번개장터",
+      "url": "www.naver.com",
+      "id": 9
+    }
+  ]
+}

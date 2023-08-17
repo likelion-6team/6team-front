@@ -2,9 +2,14 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
-import stuff from "../../data/stuff.json";
 import React, { useState, useCallback } from "react";
 import { AiOutlineDown } from "react-icons/ai";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { filterSite, priceSortFilter } from "../../recoil/atoms/filtering";
+
+export type SortOrder = "lowToHigh" | "highToLow";
+
+export type SiteFilterNameType = "당근마켓" | "번개장터" | "중고나라" | null;
 
 const resultBox = css`
   max-width: 73.75rem;
@@ -37,15 +42,15 @@ const totalSearchResult = css`
   margin-right: 2rem;
 `;
 
-const ArrangeByShop = css`
+const ArrangeByShop = (onClicked: boolean) => css`
   width: 7.375rem;
   height: 2.875rem;
-
   border-radius: 0.3125rem;
   border: 2px solid ${theme.colors["--border-gray"]};
-  background: ${theme.colors["white"]};
-
-  color: #373737;
+  background: ${onClicked ? theme.colors["main-color"] : theme.colors["white"]};
+  color: ${onClicked
+    ? theme.colors["white"]
+    : theme.colors["--button-text-color"]};
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
@@ -111,7 +116,7 @@ const DropdownSelect = styled.p`
 const DropdownMenu = styled.ul<{ isActive: boolean }>`
   display: ${(props) => (props.isActive ? "block" : "none")};
   width: 7.375rem;
-  height: 8.9rem;
+
   align-items: center;
   text-align: center;
 
@@ -130,7 +135,7 @@ const DropdownItemContainer = styled.li`
   width: 7.375rem;
   height: 2.875rem;
 
-  border-bottom: 2px solid ${theme.colors["--border-gray"]};
+  border-bottom: 1px solid ${theme.colors["--border-gray"]};
   border-top: none;
   border-radius: 0.3125rem;
   flex-shrink: 0;
@@ -147,30 +152,39 @@ const DropdownItemContainer = styled.li`
 const ItemName = styled.p`
   font-weight: bold;
 `;
-const dropdownItems = [
-  { id: 1, name: "전체 보기", sortOrder: "null" },
-  { id: 2, name: "저가순", sortOrder: "lowToHigh" },
-  { id: 3, name: "고가순", sortOrder: "highToLow" },
+const dropdownItems: DropDownType[] = [
+  { id: 1, name: "저가순", sortOrder: "lowToHigh" },
+  { id: 2, name: "고가순", sortOrder: "highToLow" },
 ];
 
-type SortOrder = "null" | "lowToHigh" | "highToLow";
+const siteFilter: SiteFilterType[] = [
+  { id: 1, name: "당근마켓" },
+  { id: 2, name: "번개장터" },
+  { id: 3, name: "중고나라" },
+];
+
+type SiteFilterType = {
+  id: number;
+  name: SiteFilterNameType;
+};
+type DropDownType = {
+  id: number;
+  name: "저가순" | "고가순";
+  sortOrder: SortOrder;
+};
 
 interface SearchResult {
-  result: string;
+  result: number;
 }
 
 export default function SearchResultBar({ result }: SearchResult) {
-  const [selectedShop, setSelectedShop] = useState<string | null>(null);
-  const [filteredProducts, setFilteredProducts] = useState(stuff);
+  const [filterSiteValue, setSelectedSite] = useRecoilState(filterSite);
   const [isActive, setIsActive] = useState(false);
   const [item, setItem] = useState<string | null>(null);
-
+  const setPriceSortFilter = useSetRecoilState(priceSortFilter);
   //버튼 누르면 가게별로 정렬
-  const handleShowSelectedShop = (shop: string) => {
-    setSelectedShop(shop);
-
-    const siteProducts = stuff.filter((item) => item.site === shop);
-    setFilteredProducts(siteProducts);
+  const handleShowSelectedShop = (shop: SiteFilterNameType) => {
+    setSelectedSite((prev) => (shop === prev ? null : shop));
   };
 
   // 정렬방식 drop down
@@ -179,37 +193,13 @@ export default function SearchResultBar({ result }: SearchResult) {
     setIsActive((prev) => !prev);
   }, []);
 
-  const [sortOrder, setSortOrder] = useState<
-    "lowToHigh" | "highToLow" | "null"
-  >("null");
-
   const onSelectItem = useCallback(
-    (selectedItem: string, sortOrder: SortOrder) => {
-      setItem(selectedItem);
+    (name: string, sortOrder: SortOrder) => {
+      setItem(name);
+      setPriceSortFilter(sortOrder);
       setIsActive(false);
-
-      setSortOrder(sortOrder);
-      if (sortOrder === "null") {
-        setFilteredProducts(stuff);
-      } else {
-        const sortedProducts = [...stuff];
-        // if (sortOrder === "lowToHigh") {
-        //   sortedProducts.sort(
-        //     (a, b) =>
-        //       parseFloat(a.price.replace(/,/g, "")) -
-        //       parseFloat(b.price.replace(/,/g, ""))
-        //   );
-        // } else {
-        //   sortedProducts.sort(
-        //     (a, b) =>
-        //       parseFloat(b.price.replace(/,/g, "")) -
-        //       parseFloat(a.price.replace(/,/g, ""))
-        //   );
-        // }
-        setFilteredProducts(sortedProducts);
-      }
     },
-    []
+    [setPriceSortFilter]
   );
 
   return (
@@ -217,24 +207,17 @@ export default function SearchResultBar({ result }: SearchResult) {
       <div css={resultBox}>
         <p css={searchResult}>검색결과</p>
         <span css={totalSearchResult}>{result}개</span>
-        <button
-          css={ArrangeByShop}
-          onClick={() => handleShowSelectedShop("당근마켓")}
-        >
-          당근마켓
-        </button>
-        <button
-          css={ArrangeByShop}
-          onClick={() => handleShowSelectedShop("번개장터")}
-        >
-          번개장터
-        </button>
-        <button
-          css={ArrangeByShop}
-          onClick={() => handleShowSelectedShop("중고나라")}
-        >
-          중고나라
-        </button>
+        {siteFilter.map(({ id, name }: SiteFilterType) => {
+          return (
+            <button
+              key={id}
+              css={ArrangeByShop(filterSiteValue === name)}
+              onClick={() => handleShowSelectedShop(name)}
+            >
+              {name}
+            </button>
+          );
+        })}
         <div></div>
         <div>
           <DropdownContainer>
@@ -255,9 +238,7 @@ export default function SearchResultBar({ result }: SearchResult) {
                 <DropdownItemContainer
                   id="item"
                   key={item.id}
-                  onClick={() =>
-                    onSelectItem(item.name, item.sortOrder as SortOrder)
-                  }
+                  onClick={() => onSelectItem(item.name, item.sortOrder)}
                 >
                   <ItemName id="item_name">{item.name}</ItemName>
                 </DropdownItemContainer>
