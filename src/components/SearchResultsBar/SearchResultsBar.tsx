@@ -193,19 +193,19 @@ export default function SearchResultBar({ result }: SearchResult) {
         setFilteredProducts(stuff);
       } else {
         const sortedProducts = [...stuff];
-        if (sortOrder === "lowToHigh") {
-          sortedProducts.sort(
-            (a, b) =>
-              parseFloat(a.price.replace(/,/g, "")) -
-              parseFloat(b.price.replace(/,/g, ""))
-          );
-        } else {
-          sortedProducts.sort(
-            (a, b) =>
-              parseFloat(b.price.replace(/,/g, "")) -
-              parseFloat(a.price.replace(/,/g, ""))
-          );
-        }
+        // if (sortOrder === "lowToHigh") {
+        //   sortedProducts.sort(
+        //     (a, b) =>
+        //       parseFloat(a.price.replace(/,/g, "")) -
+        //       parseFloat(b.price.replace(/,/g, ""))
+        //   );
+        // } else {
+        //   sortedProducts.sort(
+        //     (a, b) =>
+        //       parseFloat(b.price.replace(/,/g, "")) -
+        //       parseFloat(a.price.replace(/,/g, ""))
+        //   );
+        // }
         setFilteredProducts(sortedProducts);
       }
     },
