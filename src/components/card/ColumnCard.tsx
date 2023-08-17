@@ -2,13 +2,14 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
+import internal from "stream";
 
 interface ColumnCardProps {
   url: string;
   img: string;
   shop: string; //중고나라, 당근마켓, 번개장터
   title: string;
-  price: string;
+  price: number;
   location: string;
   date: string;
 }
@@ -18,6 +19,7 @@ const line_space = css`
 `;
 
 const innerDiv = css`
+  overflow: hidden; 
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -25,6 +27,7 @@ const innerDiv = css`
   height: 12rem;
   border-radius: 0.625rem;
   border: 1px solid ${theme.colors["--border-gray"]};
+  cursor: pointer; 
 `;
 
 //상품 이미지
@@ -41,10 +44,16 @@ const content = css`
 `;
 
 const titleCss = css`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.3125rem;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const locationCss = css`
@@ -61,6 +70,7 @@ const shopAndDate = css`
   font-weight: 300;
   line-height: 1.3125rem; /* 140% */
 `;
+
 export default function ColumnCard({
   url,
   img,
@@ -70,6 +80,15 @@ export default function ColumnCard({
   location,
   date,
 }: ColumnCardProps) {
+  const formattedPrice = price.toLocaleString(); //가격 콤마 추가
+
+  const formattedDate = new Date(date).toLocaleDateString("ko-KR", { //년, 월, 일
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+
   return (
     <div onClick={() => window.open(url)}>
       <div css={innerDiv}>
@@ -77,12 +96,12 @@ export default function ColumnCard({
       </div>
       <div css={content}>
         <div css={titleCss}>{title}</div>
-        <div css={line_space}>{price}원</div>
+        <div css={line_space}>{formattedPrice}원</div>
         <div css={locationCss}>{location}</div>
         <div css={shopAndDate}>
           {shop}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {date}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {formattedDate}
         </div>
       </div>
     </div>

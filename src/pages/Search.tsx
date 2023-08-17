@@ -15,16 +15,13 @@ import EmptyCard from "../components/card/EmptyCard";
 export default function Search() {
   const { stuff } = useParams();
   const { data, isLoading, isError } = useSearch(stuff!);
-  //배포시 삭제
-  console.log(data?.data);
 
-  // const [totalStuff, setTotalStuff] = useState(data.data);
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
   if (isError) {
-    return <p></p>;
+    return <p>Error loading data.</p>;
   }
 
   return (
@@ -57,6 +54,7 @@ export default function Search() {
         />)
         )}}   */}
 
+      <SearchResultBar result="234335"/>
       <GridContainer>
         {data.data &&
           data.data.map((d: any, index: number) => (
