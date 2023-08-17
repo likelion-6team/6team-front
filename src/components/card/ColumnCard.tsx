@@ -2,7 +2,6 @@
 import React from "react";
 import { css } from "@emotion/react";
 import theme from "../../styles/theme";
-import internal from "stream";
 
 interface ColumnCardProps {
   url: string;
@@ -73,12 +72,13 @@ const shopAndDate = css`
 `;
 
 const hovercss = css`
-&:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
-  border-radius: 0.625rem;
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 0.625rem;
+  }
 `;
 
 export default function ColumnCard({
