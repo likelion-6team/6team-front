@@ -10,28 +10,18 @@ import UserChat from "../chatbot/chat/UserChat";
 import { useGetChatMessages } from "../../hooks/useChat";
 import ChatContentsContainer from "../chatbot/ChatContentsContainer";
 import { css } from "@emotion/react";
+import ChatbotInput from "../chatbot/ChatbotInput";
 
 interface ChatbotModalProps {
   title: string;
 }
 
-const UserInput = css`
-  padding-left: 0.5rem;
-  width: 21rem;
-  height: 3rem;
-  border: none;
-  outline: none;
-  background: #f0f0f0;
-  border-radius: 1rem;
-  font-size: 1rem;
-  margin: 0 1rem 0.7rem 0.75rem;
-`;
 
 const ChatContentWrapper = css`
   max-height: 27rem;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-left: 1rem; 
+  padding-left: 1rem;
 `;
 
 export interface ChatData {
@@ -64,22 +54,16 @@ export default function ChatbotModal({ title }: ChatbotModalProps) {
       title={title}
     >
       <ChatbotModalContentContainer>
-      <div css={ChatContentWrapper}>
-        <ChatContentsContainer>
-          {useMemoMessage}
-          {isLoading && <BotChat text="찾아보는 중..."></BotChat>}
-          {isError && (
-            <BotChat text="죄송해요! 서버가 원활하지 않아요! 다시 시도해주세요!"></BotChat>
-          )}
-        </ChatContentsContainer>
-      </div>
-        <input css = {UserInput}
-          placeholder="메시지를 입력해주세요."
-          type="text"
-          value={userInputValue}
-          onChange={(e) => setUserInputValue(e.target.value)}
-          onKeyPress={handleUserInput}
-        />
+        <div css={ChatContentWrapper}>
+          <ChatContentsContainer>
+            {useMemoMessage}
+            {isLoading && <BotChat text="찾아보는 중..."></BotChat>}
+            {isError && (
+              <BotChat text="죄송해요! 서버가 원활하지 않아요! 다시 시도해주세요!"></BotChat>
+            )}
+          </ChatContentsContainer>
+        </div>
+        <ChatbotInput />
       </ChatbotModalContentContainer>
     </ChatbotModalContainer>
   );
