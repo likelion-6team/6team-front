@@ -15,9 +15,9 @@ import GridContainer from "../components/Container/GridContainer";
 import RankCardContainer from "../components/Container/RankCardContainer";
 
 const rankText = css`
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   margin-top: 1rem;
 `;
 
