@@ -20,16 +20,21 @@ export default function RankCard({
   const rankTest = css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2px;
     cursor: pointer;
+    margin-bottom: 10px;
   `;
-
+  const imgCss = css`
+    object-fit: cover;
+    border-radius: 0.625rem;
+    height: 90%;
+  `;
   const texts = css`
     display: grid;
     grid-template-rows: repeat(2, 0.3fr);
-    grid-gap: 2px;
+    grid-gap: 5px;
     padding: 30px;
     line-height: 300%;
+    padding-top: 2.5rem;
   `;
 
   const product = css`
@@ -49,7 +54,7 @@ export default function RankCard({
   return (
     <>
       <div onClick={handleClick} css={rankTest}>
-        <img src={img} alt="img" />
+        <img css={imgCss} src={img} alt="img" />
         <div css={texts}>
           <div css={product}>{title}</div>
           <div css={price}>
