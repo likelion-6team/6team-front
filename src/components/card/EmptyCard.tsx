@@ -3,7 +3,6 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
-import empty from "./empty.png";
 
 const emptyImg = css`
   margin-top: 8rem;
@@ -47,7 +46,7 @@ export default function EmptyCard() {
   return (
     <>
       <div css={emptyContainer}>
-        <img css={emptyImg} src={empty} alt="img" />
+        <img src={"Images/empty.png"} alt="img" css={emptyImg}></img>
         <div css={emptyText}>요청하신 상품을 찾을 수 없습니다.</div>
         <div css={emptyText}>이용에 불편을 드려 죄송합니다.</div>
         <div onClick={gohome} css={linkToMain}>
