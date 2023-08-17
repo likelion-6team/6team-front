@@ -19,7 +19,7 @@ const line_space = css`
 `;
 
 const innerDiv = css`
-  overflow: hidden; 
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -27,7 +27,7 @@ const innerDiv = css`
   height: 12rem;
   border-radius: 0.625rem;
   border: 1px solid ${theme.colors["--border-gray"]};
-  cursor: pointer; 
+  cursor: pointer;
 `;
 
 //상품 이미지
@@ -38,6 +38,7 @@ const productImg = css`
 
 //플랫폼 이름, 상품 제목, 가격, 위치
 const content = css`
+  margin-left: 0.5rem;
   margin-top: 1rem;
   letter-spacing: -0.02rem;
   font-family: Inter;
@@ -71,6 +72,15 @@ const shopAndDate = css`
   line-height: 1.3125rem; /* 140% */
 `;
 
+const hovercss = css`
+&:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 0.625rem;
+`;
+
 export default function ColumnCard({
   url,
   img,
@@ -82,15 +92,15 @@ export default function ColumnCard({
 }: ColumnCardProps) {
   const formattedPrice = price.toLocaleString(); //가격 콤마 추가
 
-  const formattedDate = new Date(date).toLocaleDateString("ko-KR", { //년, 월, 일
+  const formattedDate = new Date(date).toLocaleDateString("ko-KR", {
+    //년, 월, 일
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
-
   return (
-    <div onClick={() => window.open(url)}>
+    <div css={hovercss} onClick={() => window.open(url)}>
       <div css={innerDiv}>
         <img css={productImg} src={img} alt="img" />
       </div>
