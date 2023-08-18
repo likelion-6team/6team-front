@@ -40,13 +40,25 @@ export function useGetChatMessages(
     assistantMessages
   );
   //if문 함수화
-  const handleUserSend = () => {
+  const handleUserSend = async () => {
     setUserMessages((prev) => [...prev, userInputValue]);
     setUserInputValue("");
     setMessages((prevMessages) => [
       ...prevMessages,
       { type: "user", message: userInputValue },
     ]);
+    try {
+      // useChatBot 훅에서 반환handleUserSend한 mutateAsync 함수를 사용하여 데이터를 요청하고 처리합니다.
+      const response = await mutateAsync();
+      setAssistantMessages((prev) => [...prev, response.assistant]);
+      setMessages((prevMessage) => [
+        ...prevMessage,
+        { type: "assistant", message: response.assistant },
+      ]);
+      // 이후에 서버 응답을 처리하고 화면에 표시할 수 있습니다.
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   const handleUserInput = async (
     event: React.KeyboardEvent<HTMLInputElement>
@@ -54,19 +66,6 @@ export function useGetChatMessages(
     if (event.key === "Enter") {
       event.preventDefault();
       handleUserSend();
-
-      try {
-        // useChatBot 훅에서 반환handleUserSend한 mutateAsync 함수를 사용하여 데이터를 요청하고 처리합니다.
-        const response = await mutateAsync();
-        setAssistantMessages((prev) => [...prev, response.assistant]);
-        setMessages((prevMessage) => [
-          ...prevMessage,
-          { type: "assistant", message: response.assistant },
-        ]);
-        // 이후에 서버 응답을 처리하고 화면에 표시할 수 있습니다.
-      } catch (error) {
-        console.error("Error:", error);
-      }
     }
   };
   return { handleUserSend, handleUserInput, isLoading, isError, messages };
