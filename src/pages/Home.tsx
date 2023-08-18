@@ -7,7 +7,6 @@ import ColumnCard from "../components/card/ColumnCard";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/searchBar/SearchBar";
 import rank from "../data/rank.json";
-import stuff from "../data/stuff.json";
 import Footer from "../components/footer/Footer";
 import ChatbotButton from "../components/chatbot/ChatbotButton";
 import ChatbotModal from "../components/modal/ChatbotModal";
@@ -26,7 +25,7 @@ export default function Home() {
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
   };
-  const { data, isLoading } = useRandom();
+  const { data } = useRandom();
   console.log(data);
   return (
     <>

@@ -1,16 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchApi } from "../apis/search";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { AxiosError } from "axios";
-import search from "../data/search.json";
 import {
-  avaragePrice,
   filterSite,
   maxFilter,
-  maxFilterDefault,
-  maxRange,
   minFilter,
-  minRange,
   priceSortFilter,
 } from "./../recoil/atoms/filtering";
 
@@ -52,7 +47,7 @@ export function useSearch(params: string) {
     }
   };
 
-  return useQuery<totalDataType, any, totalDataType>(
+  return useQuery<totalDataType, AxiosError, totalDataType>(
     // <totalDataType, AxiosError>
     ["search", params],
     () => searchApi(params),

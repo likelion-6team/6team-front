@@ -11,14 +11,14 @@ import GridContainer from "../components/Container/GridContainer";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import SearchMainCard from "../components/card/SearchMainCard";
 import EmptyCard from "../components/card/EmptyCard";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {  useRecoilValue, useSetRecoilState } from "recoil";
 import { avaragePrice, maxRange, minRange } from "../recoil/atoms/filtering";
 
 export default function Search() {
   const { stuff } = useParams();
-  const { data, isLoading, isError, isFetching } = useSearch(stuff!);
+  const { data, isLoading, isError } = useSearch(stuff!);
   const rangeMinValue = useRecoilValue(minRange);
-  const [rangeMaxValue, setRangeMaxValue] = useRecoilState(maxRange);
+  const rangeMaxValue = useRecoilValue(maxRange);
   const setAvaragePrice = useSetRecoilState(avaragePrice);
   // const setMaxFilterDefaultValue = useSetRecoilState(maxFilterDefault);
   // const setTempData = useSetRecoilState(tempData);
@@ -35,7 +35,6 @@ export default function Search() {
       setAvaragePrice(avarageValue || 0);
     }
   }, [data?.data, rangeMaxValue, rangeMinValue, setAvaragePrice]);
-
 
   if (isLoading) {
     return <LoadingSpinner />;
