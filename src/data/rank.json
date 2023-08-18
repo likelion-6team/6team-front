@@ -1,30 +1,30 @@
 [
   {
-    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
-    "model": "LG 그램",
-    "modelHp": "999,000",
-    "modelLp": "966,000",
+    "image": "https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/113448789930289-9ea22751-0c73-4076-a90b-ac5e1c101d31.jpg",
+    "model": "맥북",
+    "modelHp": "4,290,000",
+    "modelLp": "1,200,000",
     "id": 1
   },
   {
-    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
-    "model": "아이폰13",
-    "modelHp": "1,234,000",
-    "modelLp": "866,000",
+    "image": "https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2022/09/21/15/6/d39d5f95-018e-421e-b951-00028fe9eefe.jpg",
+    "model": "아이폰14",
+    "modelHp": "1,860,000",
+    "modelLp": "1,050,000",
     "id": 2
   },
   {
-    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
-    "model": "맥북에어 2023",
-    "modelHp": "800,000",
-    "modelLp": "600,000",
+    "image": "https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/7786535541124475-d03d699b-a73f-4251-a26d-cad1274f1aa7.jpg",
+    "model": "갤럭시 플립4",
+    "modelHp": "1,095,930",
+    "modelLp": "617,000",
     "id": 3
   },
   {
-    "image": "https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/296139883_5437797736259550_7051909877809449057_n.png?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=6fWA-t09D6gAX9bU5m5&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBVs79jGdT-t2HbVNZP00AS7Fc-7DKfjDEbUkqffuvFAw&oe=64CF6C6E",
-    "model": "아이패드4 에어",
-    "modelHp": "399,000",
-    "modelLp": "310,000",
+    "image": "https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2022/09/21/15/3/33936cab-016e-41a1-bc44-94cdfffe0a5e.jpg",
+    "model": "아이팟",
+    "modelHp": "319,510",
+    "modelLp": "179,100",
     "id": 4
   }
 ]
