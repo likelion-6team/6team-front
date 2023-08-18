@@ -64,6 +64,8 @@ const locationCss = css`
 `;
 
 const shopAndDate = css`
+  display: flex;
+  justify-content: space-between;
   margin-top: 0.5rem;
   color: #5a5a5a;
   font-size: 0.9375rem;
@@ -109,9 +111,8 @@ export default function ColumnCard({
         <div css={line_space}>{formattedPrice}원</div>
         <div css={locationCss}>{location}</div>
         <div css={shopAndDate}>
-          {shop}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {formattedDate}
+          <div> {shop}</div>
+          <div> {formattedDate}</div>
         </div>
       </div>
     </div>
