@@ -4,7 +4,7 @@ import {
 } from "./../../components/SearchResultsBar/SearchResultsBar";
 import { atom } from "recoil";
 
-const max = 9999999999;
+const max = 5000000;
 
 export const filterSite = atom<SiteFilterNameType>({
   key: "filterSite",

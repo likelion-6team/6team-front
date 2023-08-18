@@ -38,7 +38,7 @@ export default function FilterModal({ title }: FilterModalProps) {
       <ModalContentContainer>
         <ModalTitleText
           title="가격 범위"
-          subtitle={`평균 가격은 ₩${avaragePriceValue?.toLocaleString()}입니다`}
+          subtitle={`평균 가격은 ₩${avaragePriceValue}입니다`}
         />
         <MultiRangeSlider />
       </ModalContentContainer>
@@ -46,8 +46,8 @@ export default function FilterModal({ title }: FilterModalProps) {
         onClick={() => {
           setMaxFilterValue(rangeMaxValue);
           setMinFilterValue(rangeMinValue);
-          resetPriceSortFilter();
           resetSelectSite();
+          resetPriceSortFilter();
           setClicked(false);
         }}
       >

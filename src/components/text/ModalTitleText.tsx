@@ -29,7 +29,7 @@ export default function ModalTitleText({
 }: ModalTitleTextProps) {
   return (
     <div css={titleTextDiv}>
-      <div css={titleDiv}>가격 범위</div>
+      <div css={titleDiv}>{title}</div>
       {subtitle ? <div css={subTitleDiv}>{subtitle}</div> : <></>}
     </div>
   );

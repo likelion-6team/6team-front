@@ -13,6 +13,7 @@ import ChatbotButton from "../components/chatbot/ChatbotButton";
 import ChatbotModal from "../components/modal/ChatbotModal";
 import GridContainer from "../components/Container/GridContainer";
 import RankCardContainer from "../components/Container/RankCardContainer";
+import useRandom from "../hooks/useRandom";
 
 const rankText = css`
   font-size: 1.7rem;
@@ -25,6 +26,8 @@ export default function Home() {
   const handleSearch = (searchTerm: string) => {
     console.log("검색:", searchTerm);
   };
+  const { data, isLoading } = useRandom();
+  console.log(data);
   return (
     <>
       <Header />
@@ -47,20 +50,21 @@ export default function Home() {
         </RankCardContainer>
         <div css={rankText}>인기 매물</div>
         <GridContainer>
-          {stuff.map(({ image, title, price, region, date, site, url, id }) => {
-            return (
-              <ColumnCard
-                key={id}
-                title={title}
-                price={price}
-                shop={site}
-                url={url}
-                location={region}
-                img={image}
-                date={date}
-              />
-            );
-          })}
+          {data?.data?.map(
+            ({ image, title, price, region, date, site, url }) => {
+              return (
+                <ColumnCard
+                  title={title}
+                  price={price}
+                  shop={site}
+                  url={url}
+                  location={region}
+                  img={image}
+                  date={date}
+                />
+              );
+            }
+          )}
         </GridContainer>
       </Wrapper>
       <ChatbotButton />

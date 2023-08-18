@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { searchApi } from "../apis/search";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { AxiosError } from "axios";
+import search from "../data/search.json";
 import {
   avaragePrice,
   filterSite,
@@ -36,10 +37,10 @@ export interface totalDataType {
 
 export function useSearch(params: string) {
   const selectedSite = useRecoilValue(filterSite);
-  const setAvaragePrice = useSetRecoilState(avaragePrice);
-  const setMaxFilterDefaultValue = useSetRecoilState(maxFilterDefault);
-  const rangeMinValue = useRecoilValue(minRange);
-  const [rangeMaxValue, setRangeMaxValue] = useRecoilState(maxRange);
+  // const setAvaragePrice = useSetRecoilState(avaragePrice);
+  // const setMaxFilterDefaultValue = useSetRecoilState(maxFilterDefault);
+  // const rangeMinValue = useRecoilValue(minRange);
+  // const [rangeMaxValue, setRangeMaxValue] = useRecoilState(maxRange);
   const maxFilterValue = useRecoilValue(maxFilter);
   const minFilterValue = useRecoilValue(minFilter);
   const priceSortFilterValue = useRecoilValue(priceSortFilter);
@@ -51,49 +52,55 @@ export function useSearch(params: string) {
     }
   };
 
-  return useQuery<totalDataType, AxiosError>(
+  return useQuery<totalDataType, any, totalDataType>(
+    // <totalDataType, AxiosError>
     ["search", params],
     () => searchApi(params),
+    // fetchDummyData,
     {
+      // cacheTime: 0,
+      staleTime: 5000,
       onSuccess: (data) => {
-        data.data?.sort((a, b) => a.price - b.price);
-        const maxPrice = data.data ? data.data[data.data.length - 1].price : 0;
-        setMaxFilterDefaultValue(maxPrice);
-        setRangeMaxValue(maxPrice);
+        console.log("onSuccess 일어남", data);
+        // data.data?.sort((a, b) => a.price - b.price);
+        // const maxPrice = data?.data
+        //   ? data?.data[data.data.length - 1].price
+        //   : 0;
+        // setMaxFilterDefaultValue(maxPrice);
+        // setRangeMaxValue(maxPrice);
 
-        if (data.data) {
-          const avarageValue = Math.floor(
-            data.data?.reduce((a, c) => a + c.price, 0) / data.data?.length
-          );
-          setAvaragePrice(avarageValue);
-        } else {
-          setAvaragePrice(0);
-        }
+        // if (data.data) {
+        //   const avarageValue = Math.floor(
+        //     data.data?.reduce((a, c) => a + c.price, 0) / data.data?.length
+        //   );
+        //   setAvaragePrice(avarageValue);
+        // } else {
+        //   setAvaragePrice(0);
+        // }
       },
       select: (data: totalDataType) => {
-        data.data?.sort(
+        //시간순 정렬
+        data?.data?.sort(
           (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
-        data.data?.sort(
+        //가격순 정렬
+        data?.data?.sort(
           priceSortFilterValue === "lowToHigh"
             ? (a, b) => a.price - b.price
             : (a, b) => b.price - a.price
         );
+
         let newData = { ...data };
-        let avarageScope = data.data?.filter(
-          (i) => i.price < rangeMaxValue && i.price > rangeMinValue
-        );
-        if (avarageScope) {
-          const avarageValue = Math.floor(
-            avarageScope?.reduce((a, c) => a + c.price, 0) / avarageScope.length
-          );
-          setAvaragePrice(avarageValue || 0);
-        }
-        newData.data = data.data?.filter(
+        // newData.data = data?.data?.filter(
+        //   (i) => i.price >= minFilterValue && i.price <= maxFilterValue
+        // );
+        // data.data = data.data?.filter(
+        //   (i) => i.price >= minFilterValue && i.price <= maxFilterValue
+        // );
+        newData.data = newData.data?.filter((i) => selectedSiteFiltering(i));
+        newData.data = newData.data?.filter(
           (i) => i.price > minFilterValue && i.price < maxFilterValue
         );
-
-        newData.data = newData.data?.filter((i) => selectedSiteFiltering(i));
         return newData;
       },
     }

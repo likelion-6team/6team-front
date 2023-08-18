@@ -5,8 +5,8 @@ import theme from "../../styles/theme";
 interface SearchMainCardProps {
   newImage: string;
   newProduct: string;
-  averagePrice: string;
-  lowestPrice: string;
+  averagePrice: number;
+  lowestPrice: number;
 }
 
 const containerStyle = css`
